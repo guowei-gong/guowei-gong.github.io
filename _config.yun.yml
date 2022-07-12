@@ -1,0 +1,128 @@
+# 亮暗模式
+mode: auto
+
+# 网站图标
+favicon: /favicon.png
+
+social:
+  - name: E-Mail
+    link: mailto:你的邮箱
+    icon: ri:mail-line
+    color: '#8E71C1'
+
+banner:
+  enable: true
+  title: 龚国玮的小站
+  border: true
+  cloud:
+    enable: true
+    color: white
+  go_down:
+    enable: true
+    icon: ri:arrow-down-s-line
+
+# 点击文章图片，放大预览
+medium_zoom: true
+
+# 替换鼠标光标
+cursor:
+  enable: true
+  default: https://cdn.yunyoujun.cn/css/md-cursors/pointer.cur
+  pointer: https://cdn.yunyoujun.cn/css/md-cursors/link.cur
+  text: https://cdn.yunyoujun.cn/css/md-cursors/text.cur
+
+# 头像
+avatar:
+  enable: true
+  url: /images/avatar.jpeg
+  rounded: true 
+  opacity: 1 #透明度
+  mickey_mouse: false
+  status:
+    enable: true
+    emoji: ☁️
+    message: 写下、记下、留下
+
+# 页脚
+footer:
+  since: 2022 # 起始年份
+  icon:
+    name: ri:bilibili-line
+    animated: false # 是否开启动画
+    color: '#0078E7'
+    url: https://space.bilibili.com/383069888
+    title: 普通话标准后我要做Up主
+  beian:
+    enable: false
+    icp: 苏ICP备xxxxxxxx号
+
+# 哀悼
+mourn:
+  enable: true
+  days:
+    - 4-4
+    - 12-13
+
+# 彩色词云
+wordcloud:
+  enable: true
+
+# 可爱的女孩子
+girls:
+  enable: true
+
+# 菜单
+menu:
+  home:
+    path: /
+    icon: ri:home-4-line
+  list:
+    - type: archives
+      path: /archives/
+      icon: ri:archive-line
+    - type: categories
+      path: /categories/
+      icon: ri:folder-2-line
+    - type: tags
+      path: /tags/
+      icon: ri:price-tag-3-line
+  custom:
+    title: 留言板
+    path: /about/
+    icon: ri:book-2-line
+
+pages:
+  - name: 我的小伙伴们
+    url: /links/
+    icon: ri:genderless-line
+    color: dodgerblue
+  - name: 喜欢的女孩子
+    url: /girls/
+    icon: ri:women-line
+    color: hotpink
+
+engine_search:
+  enable: false
+
+local_search:
+  enable: true
+
+comment:
+  candidates:
+    - waline
+    # - giscus
+  tips:
+    - 如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/YunYouJun/yunyoujun.github.io/discussions" target="_blank">GitHub Discussions</a> 与我交流。
+
+waline:
+  enable: true
+  serverURL: https://waline.yunyoujun.cn
+  visitor: true
+  comment: true
+  emoji:
+    - https://fastly.jsdelivr.net/gh/walinejs/emojis@latest/bilibili/
+    - https://fastly.jsdelivr.net/gh/walinejs/emojis@latest/weibo/
+    - https://fastly.jsdelivr.net/gh/walinejs/emojis@latest/qq/
+  locale:
+    placeholder: 填写邮箱，可以收到回复通知哦～
+  requiredMeta: [nick]
