@@ -4,11 +4,22 @@ mode: auto
 # 网站图标
 favicon: /favicon.png
 
+bg_image:
+  enable: true
+  url: https://s3.bmp.ovh/imgs/2022/07/13/f265b63b53dc43d0.jpg
+  # dark:
+  # blur: 30px # 设置背景模糊程度
+  opacity: 0.8
+
 social:
   - name: E-Mail
     link: mailto:gongguowei01@gmail.com
     icon: ri:mail-line
     color: '#8E71C1'
+  - name: RSS
+    link: /atom.xml # config.feed.path
+    icon: ri:rss-line
+    color: orange
 
 banner:
   enable: true
@@ -48,13 +59,21 @@ footer:
   since: 2022 # 起始年份
   icon:
     name: ri:bilibili-line
-    animated: false # 是否开启动画
+    animated: true # 是否开启动画
     color: '#0078E7'
     url: https://space.bilibili.com/383069888
-    title: 普通话标准后我要做Up主
+    title: 普通话标准后我要做Up主！
   beian:
     enable: false
     icp: 苏ICP备xxxxxxxx号
+  live_time:
+    enable: false
+    prefix: 本博客已萌萌哒地运行
+    suffix: (●'◡'●)
+    start_time: '2022-07-12T00:00:00'
+  powered:
+    enable: false
+
 
 # 哀悼
 mourn:
@@ -87,8 +106,8 @@ menu:
       path: /tags/
       icon: ri:price-tag-3-line
   custom:
-    title: 留言板
-    path: /about/
+    title: 开源书籍
+    path: /bookcase/
     icon: ri:book-2-line
 
 pages:
@@ -96,6 +115,10 @@ pages:
     url: /links/
     icon: ri:genderless-line
     color: dodgerblue
+  - name: 我的动态
+    url: /messages/
+    icon: ri:send-plane-fill
+    color: #DBFF33
   - name: 喜欢的女孩子
     url: /girls/
     icon: ri:women-line
@@ -112,7 +135,7 @@ comment:
     - waline
     # - giscus
   tips:
-    - 我只是一个程序员，这就是我现在纯粹人生的全部。希望每一天，都能成为更好的自己。
+    - 本人技术能力捉襟见肘，如果有写的不对的地方，请留言斧正，十分感谢
 
 waline:
   enable: true

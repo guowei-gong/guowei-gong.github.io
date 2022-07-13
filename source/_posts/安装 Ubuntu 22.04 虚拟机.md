@@ -1,5 +1,5 @@
 ---
-title: 在 Mac（Intel Core） 上准备一个学习 Kubernetes 的环境
+title: 在 Mac（Intel Core） 上安装 Ubuntu 22.04 虚拟机
 date: 2022-07-01
 ---
 本篇博客主要向读者介绍如下内容。

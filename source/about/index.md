@@ -3,14 +3,11 @@ title: 关于我
 date: 2022-07-12 16:19:09
 type: "about"
 aplayer: true
-reward: true
-icon: ri:cloud-line
 iconify: true
 ---
 
-> 若结果是痛苦的，我会竭力避开眼前的快乐，若结果是快乐的，我会百般忍耐暂时的痛苦！
-
 ~~我叫龚国玮，男，24岁，来自贵州，现居上海~~，在职 Go 中级研发工程师。
+
 <span class="heimu">爱好游泳、漫画、指弹、开源、~~摸鱼~~。</span>
 
 
