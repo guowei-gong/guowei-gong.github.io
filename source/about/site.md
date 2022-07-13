@@ -1,6 +1,7 @@
 ---
 title: 关于站点
 date: 2022-07-12 16:19:09
+comment: false
 ---
 
 <div class="danger">

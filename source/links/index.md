@@ -20,7 +20,7 @@ links:
     desc: 技术从未如此简单
     color: '#DAF7A6' # 代表色
     email: # 非必须
-  - url: https://coding3min.com/
+  - url: https://stickpraxis.com
     avatar: http://stickpraxis.com/img/avatar_hub2537cdbdf0e5ad900db8751c4303161_21418_300x0_resize_box_3.png
     name: 张志明
     blog: 张志明
