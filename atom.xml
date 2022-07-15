@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>龚国玮的小站</title>
+  <icon>http://gongguowei.com/favicon.png</icon>
+  
+  <link href="http://gongguowei.com/atom.xml" rel="self"/>
+  
+  <link href="http://gongguowei.com/"/>
+  <updated>2022-07-15T12:08:15.174Z</updated>
+  <id>http://gongguowei.com/</id>
+  
+  <author>
+    <name>龚国玮</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>逃逸分析</title>
+    <link href="http://gongguowei.com/2022/07/13/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/"/>
+    <id>http://gongguowei.com/2022/07/13/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</id>
+    <published>2022-07-13T22:11:33.000Z</published>
+    <updated>2022-07-15T12:08:15.174Z</updated>
+    
+    
+    <summary type="html">逃逸分析是什么？它有什么用？它是怎么完成的？如何查看是否发生逃逸？</summary>
+    
+    
+    
+    <category term="Go" scheme="http://gongguowei.com/categories/Go/"/>
+    
+    
+    <category term="Go" scheme="http://gongguowei.com/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Mac（Intel Core） 上安装 Ubuntu 22.04 虚拟机</title>
+    <link href="http://gongguowei.com/2022/07/01/%E5%AE%89%E8%A3%85%20Ubuntu%2022.04%20%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <id>http://gongguowei.com/2022/07/01/%E5%AE%89%E8%A3%85%20Ubuntu%2022.04%20%E8%99%9A%E6%8B%9F%E6%9C%BA/</id>
+    <published>2022-07-01T00:00:00.000Z</published>
+    <updated>2022-07-15T12:08:15.170Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本篇博客主要向读者介绍如下内容。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mac 搭建虚拟机环境。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你可以在 Mac</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>容器，到底怎么一回事儿</title>
+    <link href="http://gongguowei.com/2022/07/10/docker/%E5%AE%B9%E5%99%A8%EF%BC%8C%E5%88%B0%E5%BA%95%E6%80%8E%E4%B9%88%E4%B8%80%E5%9B%9E%E4%BA%8B%E5%84%BF/"/>
+    <id>http://gongguowei.com/2022/07/10/docker/%E5%AE%B9%E5%99%A8%EF%BC%8C%E5%88%B0%E5%BA%95%E6%80%8E%E4%B9%88%E4%B8%80%E5%9B%9E%E4%BA%8B%E5%84%BF/</id>
+    <published>2022-07-10T13:28:24.000Z</published>
+    <updated>2022-07-15T12:08:15.170Z</updated>
+    
+    
+    <summary type="html">容器是一种沙盒技术。</summary>
+    
+    
+    
+    <category term="容器" scheme="http://gongguowei.com/categories/%E5%AE%B9%E5%99%A8/"/>
+    
+    
+    <category term="Docker" scheme="http://gongguowei.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker 开启远程连接并实现安全的通信</title>
+    <link href="http://gongguowei.com/2022/07/15/docker/%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%B9%B6%E9%85%8D%E7%BD%AE%E5%8A%A0%E5%AF%86/"/>
+    <id>http://gongguowei.com/2022/07/15/docker/%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%B9%B6%E9%85%8D%E7%BD%AE%E5%8A%A0%E5%AF%86/</id>
+    <published>2022-07-15T17:55:58.000Z</published>
+    <updated>2022-07-15T12:08:15.170Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Docker 使用了客户端 – 服务端模型。服务端对外提供 REST API。&lt;/p&gt;
+&lt;p&gt;默认安装方式，客户端和服务端在同一台主机上，通过本地安全 PIC Socket 进行通信，例如 Linux 中</summary>
+        
+      
+    
+    
+    
+    <category term="容器" scheme="http://gongguowei.com/categories/%E5%AE%B9%E5%99%A8/"/>
+    
+    
+    <category term="Docker" scheme="http://gongguowei.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈容器发展历史</title>
+    <link href="http://gongguowei.com/2022/07/11/docker/%E6%B5%85%E8%B0%88%E5%AE%B9%E5%99%A8%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2/"/>
+    <id>http://gongguowei.com/2022/07/11/docker/%E6%B5%85%E8%B0%88%E5%AE%B9%E5%99%A8%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2/</id>
+    <published>2022-07-11T13:25:20.000Z</published>
+    <updated>2022-07-15T12:08:15.170Z</updated>
+    
+    
+    <summary type="html">容器本身没有意义，有意义的是容器编排。</summary>
+    
+    
+    
+    <category term="容器" scheme="http://gongguowei.com/categories/%E5%AE%B9%E5%99%A8/"/>
+    
+    
+    <category term="Docker" scheme="http://gongguowei.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes 核心概念（上）</title>
+    <link href="http://gongguowei.com/2022/07/14/k8s/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/"/>
+    <id>http://gongguowei.com/2022/07/14/k8s/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</id>
+    <published>2022-07-14T22:24:59.000Z</published>
+    <updated>2022-07-15T12:08:15.170Z</updated>
+    
+    
+    <summary type="html">本篇博客主要目的是帮助读者对 Kubernetes 核心概念有一个整体了解。</summary>
+    
+    
+    
+    <category term="Kubernetes 简明教程" scheme="http://gongguowei.com/categories/Kubernetes-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Kubernetes" scheme="http://gongguowei.com/tags/Kubernetes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识 Kubernetes</title>
+    <link href="http://gongguowei.com/2022/07/12/k8s/%E7%AE%80%E6%98%8E%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://gongguowei.com/2022/07/12/k8s/%E7%AE%80%E6%98%8E%E4%BB%8B%E7%BB%8D/</id>
+    <published>2022-07-12T12:00:00.000Z</published>
+    <updated>2022-07-15T12:08:15.170Z</updated>
+    
+    
+    <summary type="html">什么是云原生应用？什么是 Kubernetes？为什么 Kubernest 被称为云原生操作系统？Kubernetes 和 Docker 有什么关系？</summary>
+    
+    
+    
+    <category term="Kubernetes 简明教程" scheme="http://gongguowei.com/categories/Kubernetes-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Kubernetes" scheme="http://gongguowei.com/tags/Kubernetes/"/>
+    
+  </entry>
+  
+</feed>

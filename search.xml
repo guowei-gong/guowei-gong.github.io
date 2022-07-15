@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>在 Mac（Intel Core） 上安装 Ubuntu 22.04 虚拟机</title>
+    <url>/2022/07/01/%E5%AE%89%E8%A3%85%20Ubuntu%2022.04%20%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <content><![CDATA[<p>本篇博客主要向读者介绍如下内容。</p>
+<ul>
+<li>Mac 搭建虚拟机环境。</li>
+</ul>
+<p>你可以在 Mac 上获得一台这样的虚拟机。</p>
+<ul>
+<li>它可上外网。</li>
+<li>宿主机可通过终端与它连接。</li>
+</ul>
+<p>同时你还可以自定义 VirtualBox 分辨率大小。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/%E6%88%AA%E5%B1%8F2022-07-01%2010.45.51.png" alt="效果图" loading="lazy"></p>
+<h2 id="1-1-虚拟机"><a href="#1-1-虚拟机" class="headerlink" title="1.1 虚拟机"></a>1.1 虚拟机</h2><p>主流虚拟机软件屈指可数，推荐 Oracle 的 <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>。免费、大厂背书、历史悠久，难得的精品软件。<br>如果你是第一次安装 VirtualBox，需要在 Mac -&gt; 系统偏好设置 -&gt; 安全性与隐私 -&gt; 通用 中检查是否有隐私审核申请，通过即可。随后<strong>需要重启 Mac</strong>，否则可能出现错误 <code>Kernel driver not installed (rc=-1908)</code> 。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/WeChatb0ff7b449793f246f72754b6a2374501.png" loading="lazy"></p>
+<h2 id="1-2-操作系统"><a href="#1-2-操作系统" class="headerlink" title="1.2 操作系统"></a>1.2 操作系统</h2><p>我们的主要目的是学习，所以易用性应该是首要关注点，推荐 <a href="https://developer.aliyun.com/mirror/">Ubuntu 22.04 desktop-amd64</a> ，它有足够新的特性，非常适合运行 Kubernetes，内置的浏览器、终端等工具也很方便我们的调试和测试。</p>
+<blockquote>
+<p>💡如果阿里云下载较慢，可以使用<a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/20.04/ubuntu-20.04.4-desktop-amd64.iso">清华大学开源软件镜像站下载</a>。<br><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701121022.png" loading="lazy"></p>
+</blockquote>
+<h2 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h2><p>（1）打开应用文件夹，单击 VirtualBox 应用图标启动 VirtualBox。<br>（2）输入 Mac 用户密码，这样程序可以获取到构建程序所需的权限。<br>（3）点击新建，名称栏自定义，文件夹默认，类型选择 Linux，版本选择 Ubuntu(64-bit)，单击继续。<br><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701121119.png" loading="lazy"></p>
+<p>（4）内存大小修改为 4096 MB，单击<code>继续</code>。<br>（5）虚拟硬盘选择<code>现在创建虚拟硬盘</code>，单击<code>创建</code>。<br>（6）虚拟硬盘文件类型选择<code>VDI(VirtualBox 磁盘映像)</code>，单击继续。<br>（7）存储在物理硬盘上选择<code>动态分配</code>，单击继续。<br>（8）文件位置和大小，修改为 20 GB，单击创建。<br>（9）在<code>工具 - 网络</code>中，创建一个“Host-only”的网络，单击创建，DHCP 勾选启用。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701174813.png" loading="lazy"></p>
+<p>（10）选中刚才创建的虚拟机，右键，单击<code>设置</code>。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701173511.png" loading="lazy"></p>
+<p>（11）选择<code>存储</code>，单击<code>没有盘片</code>，然后单击右侧的蓝色小光盘，单击<code>选择或创建一个虚拟光盘文件</code>。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701153948.png" loading="lazy"></p>
+<p>（12）单击<code>注册</code>，在文件系统中找到之前下载的 ubuntu 系统，以 .iso 结尾的文件，单击<code>选择</code>。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701175533.png" loading="lazy"></p>
+<p>（13）选择<code>网络</code>，分别设置<code>网卡1</code>和<code>网卡2</code>，<code>网卡1</code>就设置成刚才创建的“Host-only”网络，它是我们在本地终端登录和联网时用的；<code>网卡2</code>是“网络地址转换（NAT）”，用来上外网。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701180011.png" loading="lazy"></p>
+<p>（14）现在可以开始安装 ubuntu 了，双击启动虚拟机，进入 ubuntu 引导程序，选择语言为 <code>中文</code>，单击 <code>安装 Ubuntu</code>。<br>（15）键盘布局默认，单击继续。<br>（16）选择 <code>最小安装</code>，取消勾选 <code>安装 Ubuntu</code>时更新，同时<strong>物理断网</strong>，避免下载升级包，单击继续。<br>（17）选择<code>清理整个磁盘并安装 Ubuntu</code>，单击现在安装。<br>（18）设置用户名与密码，单击安装。<br>（19）操作系统安装完成后，会强制重启。接下来我们需要安装自定义分辨率插件，点击顶部<code>设备</code>-&gt;<code>安装增强功能</code>。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701182547.png" loading="lazy"></p>
+<p>（20）打开终端，<code>$ cd /media/你的用户名/VBox_GAs_xxx</code>，接着执行 <code>$ ./autorun.sh</code>，安装完成后重启，就可以调整分辨率了。</p>
+<blockquote>
+<p>💡此时虚拟机中的操作系统有明显卡顿，需要提高显存大小，在 VirtualBox 中选中虚拟机，进入设置，单击<code>显示</code>。</p>
+</blockquote>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701182444.png" loading="lazy"></p>
+<p>（21）进一步做一些环境的初始化操作，打开终端，用 apt 从 Ubuntu 的官方软件仓库安装 git、vim、curl 等常用工具。</p>
+<pre class="language-none"><code class="language-none">$ sudo apt update
+$ sudo apt install -y git vim curl jq openssh-server
+</code></pre>
+<p>（22）安装完成后，点击右上角的<code>设置</code>，点击<code>网络</code>，然后点击<code>以太网 enp0s3</code>旁的小齿轮即可查看 ip 地址。在宿主机上通过如下命令验证是否可以连接虚拟机。</p>
+<pre class="language-none"><code class="language-none">$ ssh 你的用户名@你的ip地址</code></pre>
+
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701183209.png" loading="lazy"></p>
+<p>（23）备份当前系统，点击<code>控制</code>，再点击<code>生成备份</code>。</p>
+<p><img src="http://rebotrhdq.hd-bkt.clouddn.com/img/20220701183859.png" loading="lazy"></p>
+<h2 id="3-1-参考文献"><a href="#3-1-参考文献" class="headerlink" title="3.1 参考文献"></a>3.1 参考文献</h2><ul>
+<li><p>《Kubernetes 入门实战课》</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>逃逸分析</title>
+    <url>/2022/07/13/%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="逃逸分析是什么？"><a href="#逃逸分析是什么？" class="headerlink" title="逃逸分析是什么？"></a>逃逸分析是什么？</h2><p>逃逸分析是指对源代码分析，然后对内存管理进行优化和简化的过程。这个过程将决定一个变量是分配在堆上还是栈上。</p>
+<h2 id="逃逸分析有什么用？"><a href="#逃逸分析有什么用？" class="headerlink" title="逃逸分析有什么用？"></a>逃逸分析有什么用？</h2><p>它可以将变量合理的分配到它该去的地方。合理是指按需分配。举一个例子，在 Go 语言中，new 函数在函数中申请内存，退出函数后假如没有使用了，那变量应该分配到栈上；反之，一个变量，在函数之外还有引用，那就分配到堆上。</p>
+<p>堆和栈相比，堆适合不可预知大小的内存分配，代价是分配速度较慢，而且会产生内存碎片，堆分配还需要找到大小合适的内存块，之后通过垃圾回收才能释放。栈内存分配非常快，会被自动释放。</p>
+<p>逃逸分析，尽量把不需要分配到堆上的变量分配到栈上，减少垃圾回收机制的压力（因为堆的清理需要垃圾回收机制，频繁垃圾回收，会占用比较大的系统开销），提高运行速度。</p>
+<h2 id="逃逸分析是怎么完成的？"><a href="#逃逸分析是怎么完成的？" class="headerlink" title="逃逸分析是怎么完成的？"></a>逃逸分析是怎么完成的？</h2><p>通过编译器完成。编译器分析源代码的特征以及源代码的生命周期，根据以下的规则判断变量分配到堆上或是栈上。</p>
+<ol>
+<li>变量在函数外<strong>没有</strong>引用，<strong>优先</strong>分配到栈上。</li>
+<li>变量在函数外<strong>存在</strong>引用，<strong>必定</strong>分配到堆上。<br>第一条规则，并不是一定放到栈上，例如申请内存过大，超过了栈的存储能力。</li>
+</ol>
+<h2 id="如何查看是否发生逃逸？"><a href="#如何查看是否发生逃逸？" class="headerlink" title="如何查看是否发生逃逸？"></a>如何查看是否发生逃逸？</h2><p><code>go build -gcflags &#39;-m-l&#39; main.go</code></p>
+<p><code>gcflags</code>参数启用编译器支持。</p>
+<ul>
+<li><code>-m</code>输出编译器优化细节。</li>
+<li><code>-l</code>禁用内联优化，防止内联抹除逃逸被编译器。</li>
+</ul>
+<p>编译期间很难确定参数具体类型，这会引起意想不到的变量逃逸，可以通过反汇编命令来查看：</p>
+<p><code>go tool compile -S main.go</code></p>
+]]></content>
+      <categories>
+        <category>Go</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>容器，到底怎么一回事儿</title>
+    <url>/2022/07/10/docker/%E5%AE%B9%E5%99%A8%EF%BC%8C%E5%88%B0%E5%BA%95%E6%80%8E%E4%B9%88%E4%B8%80%E5%9B%9E%E4%BA%8B%E5%84%BF/</url>
+    <content><![CDATA[<p>在描述中，我提到了容器是一种沙盒技术。那什么是沙盒呢？</p>
+<p>沙盒就像一个装着小猫的纸箱，把小猫“放”进去的技术。不同的小猫之间，因为有了纸箱的边界，而不至于互相干扰，纸箱 A 中吃饭的小猫并不会打扰到纸箱 B 中睡觉的小猫；而被装进纸箱的小猫，也可以方便地搬来搬去，你不用再去找它躲在哪里了！</p>
+<p>我用了小猫在纸箱中的例子，其实想表达沙盒技术的两个能力，“隔离”和“迁移”。这两个能力，要如何用技术手段去实现呢？</p>
+<p>我们先思考这样一个问题，一个加法程序是如何在计算机上运行的？</p>
+<p>我们假设它需要输入值，处理值，输出值，才能完成了一次闭环。在输入值时，输入值会被加载到内存中待命。随后在处理逻辑中，操作系统又读到了加法的指令，操作系统告诉 CPU 进行加法操作。CPU 与内存协作，完成加法计算，又会使用寄存器存放输出值、内存堆栈保存执行的命令和变量。最后，再把计算结果，输出值，保存到指定位置。</p>
+<p>这样的加法程序，它就是磁盘上的二进制文件，一旦被执行，它就需要内存中的数据、寄存器的值、堆栈中的指令等，<strong>这些条件的执行环境汇总起来，就是进程</strong>。对于进程来说，它的静态表现就是程序，平时就老老实实的待在磁盘上；一旦运行起来，它便有了动态表现，变成了计算机里的数据和状态的总和。</p>
+<p><strong>而容器的核心功能，“隔离”，就是通过约束和修改进程的动态表现，创造出一个“纸箱”，也就是“边界”。</strong></p>
+<p>在 Linux 系统中，Namespace、Cgroups 机制是用来制造约束的主要手段。</p>
+<p>Namespace 是 Linux 在创建新进程的一个可选参数，Linux 通过系统调用函数 clone() 来创建进程：</p>
+<pre class="language-none"><code class="language-none">int pid &#x3D; clone(main_function, stack_size, CLONE_NEWPID | SIGCHLD, NULL); </code></pre>
+<p>在可选参数中添加 CLONE_NEWPID 后，我们就使用了一把 Namespace 机制，clone() 会返回新创建进程的 PID，此时 PID 对应的进程空间中，再运行新的程序，这个新进程的 PID 会是 1。而在宿主机真实的进程空间里，这个新创建的进程 PID 还是真实的数值，它的前面有着之前已经运行的进程。</p>
+<p>除了刚刚用到的 CLONE_NEWPID -&gt; PID Namespace，Linux 还提供了 Mount、Network 等 Namespace，用于约束和修改进程。比如 Mount Namespace，用于让被隔离的进程只看到当前 Namespace 里的挂载点信息；Network Namespace，用于让被隔离进程看到当前 Namespace 里的网络设备和配置。</p>
+<p>以上就是 Linux 容器最基本的实现原理了。Docker 容器，实际上是在创建容器进程时，指定了进程所需要启用的一组 Namespace 参数。这样容器就只能“看”到当前 Namespace 所限定的资源、设备等。</p>
+<p>我们理解 Namespace 的工作方式后，就可以知道，容器就是一种特殊的进程而已。</p>
+]]></content>
+      <categories>
+        <category>容器</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker 开启远程连接并实现安全的通信</title>
+    <url>/2022/07/15/docker/%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%B9%B6%E9%85%8D%E7%BD%AE%E5%8A%A0%E5%AF%86/</url>
+    <content><![CDATA[<p>Docker 使用了客户端 – 服务端模型。服务端对外提供 REST API。</p>
+<p>默认安装方式，客户端和服务端在同一台主机上，通过本地安全 PIC Socket 进行通信，例如 Linux 中 &#x2F;var&#x2F;run&#x2F;docker.sock。我们还可以配置它们通过网络进行通信。它们默认网络配置使用不安全的 HTTP Socket，端口为 2375。</p>
+<p>在生产环境这是不能接受的。通过 TLS 的方式连接解决这个问题。生产环境中推荐这种配置，即使在可信内网中，也建议使用该方式！</p>
+<p>Docker 为 TLS 提供了两种模式。</p>
+<ul>
+<li>daemon 模式：Docker daemon 只接收认证客户端的请求。</li>
+<li>客户端模式：Docker 客户端只接收认证的 daemon 发起的请求。</li>
+</ul>
+<p>同时使用它们，能提供最高的安全等级。</p>
+<p>下面开始介绍如何完成 TLS 的配置，总体步骤如下。</p>
+<ul>
+<li>创建 CA 。</li>
+<li>为 daemon 创建密钥对。</li>
+<li>为客户端创建密钥对。</li>
+<li>分发密钥</li>
+<li>Docker 配置 TLS 模式</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9964cd20f934b509da9cb8e12981962~tplv-k3u1fbpfcp-watermark.image" alt="示例环境" loading="lazy"><em>示例环境</em></p>
+<h2 id="创建-CA"><a href="#创建-CA" class="headerlink" title="创建 CA"></a>创建 CA</h2><p>在 node2 运行下面的命令。</p>
+<ol>
+<li><p>为 CA 创建私钥（过程中需要设置密码）<br><code>$ openssl genrsa -aes256 -out ca-key.pem 4096</code><br>当前目录新增一个 ca-key.pem 文件，这是 CA 私钥。</p>
+</li>
+<li><p>用 CA 私钥生成公钥（过程需要输入之前的密码）<br><code>$ openssl req -new -x509 -days 730 -key ca-key.pem -sha256 -out ca.pem</code><br>当前目录新增一个 ca.pem 文件，这是 CA 公钥，也叫”证书“。</p>
+</li>
+</ol>
+<h2 id="为-daemon-创建密钥对"><a href="#为-daemon-创建密钥对" class="headerlink" title="为 daemon 创建密钥对"></a>为 daemon 创建密钥对</h2><p>在 node3 运行下面的命令。</p>
+<ol>
+<li><p>为 daemon 创建私钥。<br><code>$ openssl genrsa -out daemon-key.pem 4096</code><br>当前目录新增一个 daemon-key.pem 文件，这是 daemon 节点的私钥。</p>
+</li>
+<li><p>创建证书签名请求并发送到 CA。<br><code>$ openssl req -subj &quot;/CN=daemon&quot; \   -sha256 -new -key daemon-key.pem -out daemon.csr</code><br>当前目录新增一个 daemon.csr 文件，这是 CSR。</p>
+</li>
+<li><p>为证书添加属性。<br>创建文件，名为 extfile.cnf。示例中使用了 daemon 节点的 DNS 名称和 IP。每个人的环境中可能值不同。</p>
+<pre class="language-none"><code class="language-none">$ subjectAltName &#x3D; DNS:daemon,IP:192.168.57.3
+extendedKeyUsage &#x3D; serverAuth</code></pre>
+</li>
+<li><p>生成证书<br>使用 CSR 文件、CA 密钥、extfile.cnf 文件完成签名和 daemon 证书配置。<br><code>$ openssl x509 -req -days 730 -sha256 \   -in daemon.csr -CA ca.pem -CAkey ca-key.pem \   -CAcreateserial -out daemon-cert.pem -extfile extfile.cnf </code></p>
+</li>
+</ol>
+<p>此时，已经拥有一个可用 CA ，同时 daemon 的 Node3 节点也有了自己的密钥。</p>
+<p>继续下面内容前，删除 CSR 和 extfile.cnf。<br><code>$ rm daemon.csr extfile.cnf</code></p>
+<h2 id="为客户端创建密钥对"><a href="#为客户端创建密钥对" class="headerlink" title="为客户端创建密钥对"></a>为客户端创建密钥对</h2><p>在 node3 运行下面的命令。</p>
+<ol>
+<li><p>为客户端创建密钥<br><code>$ openssl genrsa -out client-key.pem 4096</code><br>当前目录新增一个 client-key.pem 文件。</p>
+</li>
+<li><p>创建 CSR。<br><code>$ openssl req -subj &#39;/CN=client&#39; -new -key client-key.pem -out client.csr</code><br>当前目录新增一个 client.csr 文件。</p>
+</li>
+<li><p>创建 extfile.cnf 文件<br>将证书设置为客户端认证可用。文件内容如下。<br><code>extendedKeyUsage = clientAuth</code></p>
+</li>
+<li><p>生成证书<br>使用 CSR 文件、CA 密钥、extfile.cnf 文件完成签名和客户端证书配置。<br><code>$ openssl x509 -req -days 730 -sha256 \   -in client.csr -CA ca.pem -CAkey ca-key.pem \   -CAcreateserial -out client-cert.pem -extfile extfile.cnf</code></p>
+</li>
+</ol>
+<p>删除 CSR 和 extfile.cnf ，因为不会用到它们了。<br><code>$ rm client.csr extfile.cnf</code></p>
+<p>此时，在工作目录下应该有如下 7 个文件。</p>
+<pre class="language-none"><code class="language-none">ca-key.pem
+ca.pem
+ca.srl
+client-cert.pem
+client-key.pem
+daemon-cert.pem
+daemon-key.pem</code></pre>
+
+<h2 id="分发密钥"><a href="#分发密钥" class="headerlink" title="分发密钥"></a>分发密钥</h2><ul>
+<li>从 CA (刚才证书生成的 node) 复制 ca.pem、daemon-cert.pem、daemon-key.pem 到 node3（daemon 节点）。</li>
+<li>从 CA (刚才证书生成的 node) 复制 ca.pem、client-cert.pem、client-key.pem 到 node1（客户端节点）。</li>
+</ul>
+<p>这里用 scp 完成复制操作。在 scp 的过程中对部分文件进行了重命名。<strong>重命名非常重要</strong>，因为 Docker 对文件命名有规范。</p>
+<pre class="language-none"><code class="language-none">&#x2F;&#x2F; Daemon files
+$ scp .&#x2F;ca.pem ubuntu@daemon:&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;ca.pem
+$ scp .&#x2F;daemon-cert.pem ubuntu@daemon:&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;cert.pem
+$ scp .&#x2F;daemon-key.pem ubuntu@daemon:&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;key.pem
+
+&#x2F;&#x2F; Client files
+$ scp .&#x2F;ca.pem ubuntu@client:&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;ca.pem
+$ scp .&#x2F;client-cert.pem ubuntu@client:&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;cert.pem
+$ scp .&#x2F;client-key.pem ubuntu@client:&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;key.pem</code></pre>
+
+<h2 id="Docker-配置-TLS-模式"><a href="#Docker-配置-TLS-模式" class="headerlink" title="Docker 配置 TLS 模式"></a>Docker 配置 TLS 模式</h2><p>进入 Node3（daemon 节点）完成下面的配置。</p>
+<p>找到 daemon.json 配置文件。在 Linux 上位于 &#x2F;etc&#x2F;docker，编辑 daemon.json 文件，添加如下行。</p>
+<pre class="language-none"><code class="language-none">&quot;tls&quot;: true, 
+&quot;tlsverify&quot;: true,
+&quot;tlscacert&quot;: &quot;&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;ca.pem&quot;,
+&quot;tlscert&quot;: &quot;&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;cert.pem&quot;,
+&quot;tlskey&quot;: &quot;&#x2F;home&#x2F;ubuntu&#x2F;.docker&#x2F;key.pem&quot;,
+&quot;hosts&quot;: [&quot;tcp:&#x2F;&#x2F;你的 daemon 的IP:2376&quot;]</code></pre>
+
+<p>这些 daemon.json 中的参数意义如下。</p>
+<ul>
+<li>tlsverify ：开启 TLS 认证。</li>
+<li>tlscacert ：指定daemon可信任的 CA。</li>
+<li>tlscert ：向 Docker 指定 daemon 证书的位置。</li>
+<li>tlskey ：向 Docker 指定daemon私钥的位置。</li>
+<li>hosts ：向 Docker 指定需要绑定 daemon 的具体 Socket。</li>
+</ul>
+<div class="warning">
+
+<blockquote>
+<p>部分版本的 Linux 系统运行 systemd 的，不允许在 daemon.json 中使用“hosts”选项。替换方案是在 systemd 配置文件中进行重写。创建名为 &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d&#x2F;override.conf 的新文件。在其中加入下列 3 行内容，然后保存。</p>
+<pre class="language-none"><code class="language-none">[Service]
+ExecStart&#x3D;
+ExecStart&#x3D;&#x2F;usr&#x2F;bin&#x2F;dockerd -H tcp:&#x2F;&#x2F;你的 daemon 的IP:2376”</code></pre>
+</blockquote>
+</div>
+
+<p>重启 daemon 。<br><code>$ systemctl daemon-reload</code><br><code>$ systemctl restart docker.service</code></p>
+<div class="warning">
+
+<blockquote>
+<p>如果重启失败且错误为 <code>docker.service: Main process exited, code=exited, status=1/FAILURE</code></p>
+<p>为了让它工作，编辑 <code>/lib/systemd/system/docker.service</code>，修改如下内容之后再次尝试重启。</p>
+<pre class="language-none"><code class="language-none"># 修改前:
+ExecStart&#x3D;&#x2F;usr&#x2F;bin&#x2F;dockerd -H fd:&#x2F;&#x2F; --containerd&#x3D;&#x2F;run&#x2F;containerd&#x2F;containerd.sock
+
+# 修改后:
+ExecStart&#x3D;&#x2F;usr&#x2F;bin&#x2F;dockerd --containerd&#x3D;&#x2F;run&#x2F;containerd&#x2F;containerd.sock</code></pre>
+</blockquote>
+</div>
+
+<p>理论上，<code>/etc/systemd/system/docker.service.d/override.conf</code> 与 <code>/etc/docker/daemon.json</code> 可以同时修改，但是并不建议这么做，如果仅修改 <code>/etc/docker/daemon.json</code> 没有出现任何问题，那就太棒了。</p>
+<p>进入 Docker 客户端节点，配置临时环境变量。<br><code>$ export DOCKER_HOST=tcp://你的 daemon IP 地址:2376</code></p>
+<p>尝试运行 <code>$ docker version</code>，会出现错误，类似无法连接 daemon。接着设置另一个环境变量。</p>
+<p><code>$ export DOCKER_TLS_VERIFY=1</code></p>
+<p>它是告知 Docker 客户端使用证书对全部命令进行签名，此时再试试 <code>$ docker version</code>！</p>
+<p>🎉 恭喜。你成功完成了客户端与 daemon 完成安全的通信。</p>
+]]></content>
+      <categories>
+        <category>容器</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浅谈容器发展历史</title>
+    <url>/2022/07/11/docker/%E6%B5%85%E8%B0%88%E5%AE%B9%E5%99%A8%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2/</url>
+    <content><![CDATA[<p>我现在有一大批物理服务器，想要租借给别人使用，因此我搭建了一个物理集群，并向用户售卖，这就是 IaaS(基础设施即服务 Infrastructure as a Service)。</p>
+<p>用户通过购买我的物理服务器，物理服务器上运行着我的虚拟机，用户在虚拟机上部署自己的应用。不过在使用过程中发现：</p>
+<ul>
+<li>本地开发环境与购买的虚拟机之间环境不同，导致调试、部署困难</li>
+<li>不同的应用可能在同一台虚拟机上，没有隔离</li>
+<li>大规模的应用部署也比较麻烦。</li>
+</ul>
+<p>为了解决上面的问题，出现了 PaaS(平台即服务 Platform as a service)，例如 Cloud Foundry(云计算)，它提供了：</p>
+<ul>
+<li>大规模应用部署能力</li>
+<li>提供了“沙盒”容器来隔离应用，让用户进程互不干扰</li>
+</ul>
+<p>但是在使用过程中，用户发现“沙盒”用起来并不方便，打包过程还是一样很痛苦，需要用户来让本地应用于远端 PaaS 适配，此时出现了小鲸鱼 Docker。</p>
+<p>[scode type&#x3D;”lblue”]没用的冷知识：Docker 项目在 2016 年已经改名为 Moby，Docker 仅仅是公司名称。[&#x2F;scode]</p>
+<p><img src="https://s3.bmp.ovh/imgs/2021/10/648c430ed9d67275.png" loading="lazy"></p>
+<p>Docker 提出了镜像的概念，通过镜像实现本地环境与远端环境高度一致，解决了打包困难的问题，取代了 Cloud Foundry 这类 PaaS 项目中的“沙盒”，至此，Docker 开始崭露头角。</p>
+<p>随着 Docker 被大范围使用，PaaS 的定义正逐渐变为一套以 Docker 容器技术为核心，全新的“容器化”思路。2014 年，Docker 公司也顺势发布了自己的 PaaS 项目 Swarm。</p>
+<p>Swarm 项目的集群管理功能触碰了其他公司的利益分配，因此 CoreOS 推出了自己的 rkt 容器、Mesos 发布了 Marathon 与 Swarm 竞争、Google 公司宣告 Kubernetes 诞生。</p>
+<p>[scode type&#x3D;”lblue”]没用的冷知识：CoreOS 曾是 Docker 项目开源后最积极、活跃的贡献者。[&#x2F;scode]</p>
+<p>Docker 公司为完善平台能力，收购了第一个提出“容器编排”概念的项目 Fig，并更名为 Compose。“容器编排”正式进入用户视野。</p>
+<p>Docker 公司有了 Docker，Swarm，Compose 三张牌后，在容器生态具有很大的优势和发言权。为了竞争，Google、Redhat 等基础设施领域的玩家们成立了 CNCF（Cloud Native Computing Foundation）基金会，开始围绕 Kubernetes 打造生态。Kubernetes 很快将 Swarm 项目远远的甩在身后。</p>
+<p>Docker 为了与 Kubernetes 竞争“容器编排”领域，Docker 公司甚至放弃了 Swarm 项目，但最终未能打败 Kubernetes，因为 Kubernetes 是 Google 内部沉淀多年的项目，包含了许多超前的设计，与 Docker 已不在一个出发点。</p>
+<p>在 2017 年，Docer 在自己的主打产品 Docker 企业版中内置 Kubernetes 项目，这标志着“编排之争”落下帷幕。容器化社区以 Kuberentes 为核心愈加繁荣。</p>
+<p>[scode type&#x3D;”lblue”]没用的冷知识：微软曾经以天价收购 Docker，接受微软的天价收购，在大多数人看来都是一个非常明智和实际的选择。可是 Solomon Hykes 却多少带有一些理想主义的影子，不甘于“寄人篱下”，选择带领 Docker 公司对抗整个产业的压力。[&#x2F;scode]</p>
+]]></content>
+      <categories>
+        <category>容器</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kubernetes 核心概念（上）</title>
+    <url>/2022/07/14/k8s/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<p>Kubernetes 承担两个角色。</p>
+<ul>
+<li>支撑应用运行的集群。</li>
+<li>编排器。</li>
+</ul>
+<h2 id="集群角色的-Kubernetes"><a href="#集群角色的-Kubernetes" class="headerlink" title="集群角色的 Kubernetes"></a>集群角色的 Kubernetes</h2><p>作为集群，包含若干节点与控制平面。控制平面对外提供 API，对内负责节点的任务分配与调度，并持久化存储节点状态，应用服务运行在节点上。<br>控制节点提供了全部特性，例如自动扩缩容等功能。工作节点执行应用代码。</p>
+<h2 id="编排器角色的-Kubernetes"><a href="#编排器角色的-Kubernetes" class="headerlink" title="编排器角色的 Kubernetes"></a>编排器角色的 Kubernetes</h2><p>编排器，是指包含了应用部署与管理的系统。Kubernetes 负责将应用组织并保持顺畅运行，当出现特定事件或变化，也会做出响应。这里提到的行为，就称为编排。</p>
+<h2 id="Kubernetes-如何工作的"><a href="#Kubernetes-如何工作的" class="headerlink" title="Kubernetes 如何工作的"></a>Kubernetes 如何工作的</h2><p>一个或多个主节点与若干工作节点，构成 Kubernetes 集群。用户将自己的 App 打包并部署到 Kubernetes 集群。主节点负责管理集群，关注调度决策、监控集群、响应事件等工作，主节点也称作控制平面。工作节点负责运行用户的 App，它也称为数据平面，它跟主节点有汇报关系，并监控任务运行。</p>
+<p>Kubernetes 运行可以简单分为以下过程。</p>
+<ul>
+<li>语言实现应用，采用微服务架构。</li>
+<li>微服务打包为容器。</li>
+<li>容器集成到 Pod。</li>
+<li>使用更高层的控制面板将 Pod 在集群中部署。</li>
+</ul>
+<p>Kubernetes 通过声明式管理应用。意思是用户通过 YAML 文件来描述部署的应用如何运行于管理，将这些包含预期的 YAML 文件交给 Kubernetes，Kubernetes 来完成即可。</p>
+<h2 id="Kubernetes-主节点"><a href="#Kubernetes-主节点" class="headerlink" title="Kubernetes 主节点"></a>Kubernetes 主节点</h2><p>主节点，组成控制平面。在生产环境，它需要高可用部署，一般建议 3 或 5个副本。下面快速了解组成主节点的各个服务组件。</p>
+<h3 id="API-Server"><a href="#API-Server" class="headerlink" title="API Server"></a>API Server</h3><p>负责集群中所有组件通信。访问它必须经过授权于认证。</p>
+<h3 id="集群存储"><a href="#集群存储" class="headerlink" title="集群存储"></a>集群存储</h3><p>在控制平面中，只有集群存储是有状态的（会持久化的意思），存储集群的配置与状态。Kubernetes 底层用 etcd。etcd 认为一致性比可用性更加重要。对于所有分布式数据库，写操作性的一致性至关重要。etcd 使用 Raft 一致性算法解决这个问题。</p>
+<h3 id="Controller-管理器"><a href="#Controller-管理器" class="headerlink" title="Controller 管理器"></a>Controller 管理器</h3><p>Controller 管理器实现了控制循环，完成集群监控与事件响应。它负责创建 controller。一般控制循环包括：工作节点 controller、终端 controller 以及副本 controller。集群监控目的是保证集群当前状态与期望状态相匹配。集群监控基础逻辑大致如下：</p>
+<ul>
+<li>获取期望状态。</li>
+<li>观察当前状态。</li>
+<li>判断差异。</li>
+<li>变更消除差异点。</li>
+</ul>
+<h3 id="调度器"><a href="#调度器" class="headerlink" title="调度器"></a>调度器</h3><p>调度器职责是监听 API Server 来启动工作任务，并分配合适的节点。它的核心是排序系统，该系统有评分机制，将工作分配到分数最高的节点来运行任务。调度器确定可以执行任务的节点后，还会再进行前置校验，例如该节点是否仍然存在、分配的任务需要的端口当前选择的工作节点是否可以访问等，如果无法通过，该节点会被直接忽略，如果调度器最后无法找到合适的工作节点，则当前任务无法被调度，并被标记为暂停状态。<br><strong>需要特别注意，调度器不负责运行任务，只为任务负责分配合适的工作节点</strong>。</p>
+<h3 id="云-controller-管理器"><a href="#云-controller-管理器" class="headerlink" title="云 controller 管理器"></a>云 controller 管理器</h3><p>集成公有云服务。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>Kubernetes 主节点运行控制平面服务。</p>
+<h2 id="Kubernetes-工作节点"><a href="#Kubernetes-工作节点" class="headerlink" title="Kubernetes 工作节点"></a>Kubernetes 工作节点</h2><p>工作节点是集群的工作者，负责如下 3 件事。</p>
+<ul>
+<li>监听 API Server 分派的新任务。</li>
+<li>执行任务。</li>
+<li>通过 API Server 回复执行结果。<br>下面快速了解组成工作节点的各个服务组件。</li>
+</ul>
+<h3 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h3><p>工作节点的核心部分。新工作节点加入节点后，Kubelet 会被部署到新节点（先有工作节点还是先有 Kubelet 暂时不清楚），然后 Kubelet 将当前节点注册到集群中。它还有一个职责，监听 API Server 分配的任务，监听到就执行该任务，并维护一个与控制平面的通信频道。</p>
+<h3 id="容器运行时"><a href="#容器运行时" class="headerlink" title="容器运行时"></a>容器运行时</h3><p>工作节点需要通过它来获取、启动、停止执行任务依赖的容器，它负责容器管理与运行逻辑。</p>
+<h3 id="Kube-proxy"><a href="#Kube-proxy" class="headerlink" title="Kube-proxy"></a>Kube-proxy</h3><p>负责本地集群网络，保障 Pod 间的网络路由与负载均衡。</p>
+]]></content>
+      <categories>
+        <category>Kubernetes 简明教程</category>
+      </categories>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识 Kubernetes</title>
+    <url>/2022/07/12/k8s/%E7%AE%80%E6%98%8E%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<p>Kuberneter 是一个应用<strong>编排器</strong>，主要用于<strong>容器化</strong>的<strong>云原生微服务应用</strong>进行编排。</p>
+<p>上面这段定义让刚接触 Kubernetes 的程序员感觉晦涩难懂，那我们就通过拆分上面这句话中的术语，来理解Kuberneter 相关概念吧。</p>
+<h2 id="编排器"><a href="#编排器" class="headerlink" title="编排器"></a>编排器</h2><p>部署、管理应用程序的系统，能动态地响应变化，例如以下部分功能。</p>
+<ul>
+<li><p>回滚。</p>
+</li>
+<li><p>滚动升级。</p>
+</li>
+<li><p>故障自愈。</p>
+</li>
+<li><p>自动扩缩容。</p>
+</li>
+</ul>
+<p>自动完成以上所有任务。需要人工最初进行一些配置，就可以一劳永逸。</p>
+<h2 id="容器化应用"><a href="#容器化应用" class="headerlink" title="容器化应用"></a>容器化应用</h2><p>运行在容器中的应用程序（应用程序后面简称为程序）。以前，程序运行在物理机或虚拟机中。容器，是现代程序的运行方式。</p>
+<h2 id="云原生应用"><a href="#云原生应用" class="headerlink" title="云原生应用"></a>云原生应用</h2><p>被设计来满足现代业务需求（回滚、滚动升级、故障自愈、自动扩缩容等），并且在 Kuberneter 之上的应用。</p>
+<h2 id="微服务应用"><a href="#微服务应用" class="headerlink" title="微服务应用"></a>微服务应用</h2><p>小而专的服务组件，通过通信组成一套完整的业务系统。微服务团队可以有自己的发布节奏，并且独立扩缩容。这种构建方式是云原生用于的重要特点。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通过以上介绍，再来回顾一下前面那句各种晦涩难懂的术语组成的定义。Kuberneter 是部署、管理应用程序的系统（应用编排器），主要用于运行容器形式的应用程序（容器化应用），这些应用程序的构建方式（云原生微服务）使它们能够实现回滚、滚动升级、故障自愈、自动扩缩容等。</p>
+<h2 id="Kubernetes-的名字来源"><a href="#Kubernetes-的名字来源" class="headerlink" title="Kubernetes 的名字来源"></a>Kubernetes 的名字来源</h2><p>Kubernetes 一词源于希腊语“舵手”。</p>
+<h2 id="Kubernetes-的诞生"><a href="#Kubernetes-的诞生" class="headerlink" title="Kubernetes 的诞生"></a>Kubernetes 的诞生</h2><p>AWS 通过云计算产品，改变了世界。许多公司都在尝试追赶 AWS 的步伐。Google 就是之一。</p>
+<p>Google 将容器用于扩缩容方面有丰富的管理经验，每周都可能运行数十亿个容器，内部有专门的一套系统 Brog。在 2014 年，Google 内部系统升级迭代，从 Brog 切换到 Omega，按照惯例会发表公开论文。但是 Google 之前发表的论文 MapReduce 吃过亏，被 Yahoo 开发的 Hadoop 抢占了市场，所以 Google 决定发表论文的同事，把 C++ 开发的 Brog 系统用 Go 语言重新并开源，创建了全新的平台，名为 Kubernetes。同年，Kubernetes 被捐赠给了 CNCF 云原生计算基金会。</p>
+<p>需要明确一点，Kubernetes 并非 Brog 和 Omega 的开源版本。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0db3c1be162f4e4aa41d48c86a9c2d3d~tplv-k3u1fbpfcp-watermark.image" alt="图片来自网络" loading="lazy"></p>
+<h2 id="Kubernetes-和-Docker-的关系"><a href="#Kubernetes-和-Docker-的关系" class="headerlink" title="Kubernetes 和 Docker 的关系"></a>Kubernetes 和 Docker 的关系</h2><p>互补。Docker 应用打包、测试、交付。Kubernetes 基于 Docker 的产物，进行编排、运行。</p>
+<p>例如现在有 1 个集群，3 个节点。这些节点，都以 Docker 作为容器运行时，Docker 是更偏向底层的技术。Kubernetes 更偏向上层的技术 ，它实现了对容器运行时的抽象，抽象的目的是兼容底层容器运行时（容器进行时技术不仅有 Docker，还有 containerd、kata 等，无论哪种容器运行时，Kubernetes 层面的操作都是一样的）以及解耦，同时还提供了一套容器运行时的标准。抽象的产物是容器运行时接口 CRI。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21f18f8fd24e400e95c247ba1a39b77a~tplv-k3u1fbpfcp-watermark.image" alt="图片来自网络" loading="lazy"></p>
+<h2 id="Kubernetes-和-Docker-Swarm-对比"><a href="#Kubernetes-和-Docker-Swarm-对比" class="headerlink" title="Kubernetes 和 Docker Swarm 对比"></a>Kubernetes 和 Docker Swarm 对比</h2><p>Kubernetes 的发展和市场份额大于 Docker Swarm。</p>
+<h2 id="Kubernetes-为何被称为云操作系统"><a href="#Kubernetes-为何被称为云操作系统" class="headerlink" title="Kubernetes 为何被称为云操作系统"></a>Kubernetes 为何被称为云操作系统</h2><p>什么是 OS，例如在物理服务器上，OS 指的是 Linux、Ubuntu 等，它用于对物理服务器硬件资源的抽象，并对进程进行调度等等。那么 Kubernetes 就是对云上资源的抽象，并对云原生微服务应用进行调度。Kubernetes 可以对公有云、私有云进行统一抽象，并实现对负载的无缝迁移和均衡，不会永远被绑定在某一个特定的云上。</p>
+<p>OS ，能屏蔽底层的复杂性，例如 Linux ，我们不用关心程序运行在哪个 CPU 核心上，OS 已经搞定了。Kubernetes 对云和应用程序进行了类似的管理，无须明确对应用程序在哪个节点或存储卷上进行硬编程。</p>
+<h2 id="一个常见的例子理解-Kubernetes"><a href="#一个常见的例子理解-Kubernetes" class="headerlink" title="一个常见的例子理解 Kubernetes"></a>一个常见的例子理解 Kubernetes</h2><p>寄、收快递的过程。</p>
+<p>发件人将货物按照快递公司的标准打包，提供基本信息（收货地址等），然后交给快递小哥。其他事情，无需发件人操心了，例如快递用什么交通工具运输、司机走哪条高速等等。快递公司同时提供物流查询、截断快递等服务。重点在于，快递公司仅需要发件人提供基本信息。</p>
+<p>Kubernetes 也是类似的，将应用程序打包成容器，声明运行方式，交给 Kubernetes 即可，同时它提供了丰富的工具和 API 来控制、观测运行在平台之上的应用程序。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>再次劝君尝试一下 Kubernetes。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>《Kubernetes 入门实战课》，罗剑锋</p>
+<p>《Kubernetes 修炼手册》，Nigel Poulton</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>封面与文中图片来自网络。</p>
+]]></content>
+      <categories>
+        <category>Kubernetes 简明教程</category>
+      </categories>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+</search>
