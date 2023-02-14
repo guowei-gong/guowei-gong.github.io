@@ -1,0 +1,254 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "1204 CORES",
+    "home_page_url": "https://guowei-gong.github.io/",
+    "feed_url": "https://guowei-gong.github.io/feed.json",
+    "description": "写代码是热爱，写到世界充满爱",
+    "icon": "https://img-blog.csdnimg.cn/ffb4f691bdb14f628c598dd8858c6c53.jpeg",
+    "author": {
+        "name": "龚国玮",
+        "url": "https://valaxy.site"
+    },
+    "items": [
+        {
+            "id": "",
+            "content_html": "<blockquote>\n<p>Problem: <a href=\"https://leetcode.cn/problems/remove-linked-list-elements/description/\">203. 移除链表元素</a></p>\n</blockquote>\n<p>使用</p>\n",
+            "url": "https://guowei-gong.github.io/posts/algorithm/移除链表中的元素为何需要一个 head 的副本",
+            "title": "移除链表中的元素为何需要一个 head 的副本",
+            "date_modified": "2022-11-14T12:10:30.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>巧妙的通过整数，来表示每个字符串中出现过哪些字符</p>\n<h1>思路</h1>\n<h2>思路一</h2>\n<p>通过数组记录 <code>allowed</code> 中的字符，遍历 <code>words</code> 字符串数组，获取数组中的字符串，判断该字符串的每一个字符</p>\n",
+            "url": "https://guowei-gong.github.io/posts/algorithm/统计一致字符串的数目",
+            "title": "位运算符优化计数程序",
+            "date_modified": "2022-11-08T10:59:30.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>我们学习和研究计算机体系结构，就是为了理解计算机是如何运作的，以及......为！什！么！要！这！么！运！作！。为什么这么运作的目的，就是为了提升&quot;性能&quot;。</p>\n<p>计算机的性能，主要由如下两个指标衡量。</p>\n",
+            "url": "https://guowei-gong.github.io/posts/computer_architecture/对性能的理解",
+            "title": "从CPU的角度考虑性能优化",
+            "date_modified": "2022-08-25T10:01:44.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>使用多阶段构建的方式创建紧凑的 Docker 镜像，探究如何显著缩小 Docker 镜像的大小。</p>\n<p>多阶段构建方式，是在 <code>Dockerfile</code> 中使用多个 <code>FROM</code> 指令，每个 <code>FORM</code></p>\n",
+            "url": "https://guowei-gong.github.io/posts/docker/5分钟内容器化您的Go程序",
+            "title": "多阶段构建优化您的 Go 程序镜像",
+            "date_modified": "2022-08-19T14:34:56.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>容器本身没有意义，有意义的是容器编排。</p>\n<p>我现在有一大批物理服务器，想要租借给别人使用，因此我搭建了一个物理集群，并向用户售卖，这就是 IaaS(基础设施即服务 Infrastructure as a</p>\n",
+            "url": "https://guowei-gong.github.io/posts/docker/Docker发家史，诠释我要打十个",
+            "title": "Docker发家史，诠释我要打十个",
+            "date_modified": "2022-07-11T13:25:20.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>在描述中，我提到了容器是一种沙盒技术。那什么是沙盒呢？</p>\n<p>沙盒就像一个装着小猫的纸箱，把小猫“放”进去的技术。不同的小猫之间，因为有了纸箱的边界，而不至于互相干扰，纸箱 A 中吃饭的小猫并不会打扰到</p>\n",
+            "url": "https://guowei-gong.github.io/posts/docker/容器，到底怎么一回事儿",
+            "title": "容器，到底怎么一回事儿",
+            "date_modified": "2022-07-10T13:28:24.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>Docker 使用了客户端 -- 服务端模型。服务端对外提供 REST API。</p>\n<p>默认安装方式，客户端和服务端在同一台主机上，通过本地安全 PIC Socket 进行通信，例如 Linux 中 /</p>\n",
+            "url": "https://guowei-gong.github.io/posts/docker/开启远程连接并配置加密",
+            "title": "Docker远程连接并实现安全的通信",
+            "date_modified": "2022-07-15T17:55:58.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>感觉游戏服务端，除了更新，保存数据啊、生成随机物品啊、都没什么了，好像游戏开发场景中，服务端已经无关紧要了。看着客户端忙成狗，正在摸鱼的你是否也有过这样的疑问？</p>\n<h2>为什么有游戏服务端</h2>\n<p>因为有需</p>\n",
+            "url": "https://guowei-gong.github.io/posts/game/游戏服务端应该做什么",
+            "title": "相比游戏客户端，游戏服务端开发无关紧要吗",
+            "date_modified": "2023-02-06T14:38:07.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>基于 ARPG 游戏类型的登录系统。<br>\n登录系统是基础性系统，和上层逻辑不一样，可以考虑消息驱动。</p>\n<h2>热身阶段</h2>\n<p>将游戏服务器结构分为上层逻辑层和基础组件层。不同游戏的区别在于逻辑层，玩法的不同。</p>\n",
+            "url": "https://guowei-gong.github.io/posts/game/游戏核心逻辑设计-登录系统",
+            "title": "游戏核心逻辑设计--登录系统",
+            "date_modified": "2023-02-02T10:19:52.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>如果您以前写过 <code>Golang</code> ，那您很可能见过或者写过 <code>Struct</code> 结构体。但是，您可能不知道，通过简单地重新排序结构体中的字段，您可以极大地提高 Go 程序的速度和内存使用率！</p>\n<p>难以置</p>\n",
+            "url": "https://guowei-gong.github.io/posts/go/从结构体优化Go性能",
+            "title": "0秒改struct性能直接提升15%，产品姐姐都夸我好棒",
+            "date_modified": "2022-08-17T21:08:09.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>这并不是讨论并发概念的博客，而是如何编写任务并发执行。你可以参照代码直接进入实施。</p>\n<p><code>Worker Pools</code> 线程池是一种并发模式。该模式中维护了固定数量的多个工作器，这些工作器等待着管理者分</p>\n",
+            "url": "https://guowei-gong.github.io/posts/go/并发工作池",
+            "title": "Go并发WorkerPool模式",
+            "date_modified": "2022-08-16T15:01:40.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>本篇博客主要目的是帮助读者对 Kubernetes 核心概念有一个整体了解。</p>\n<p>Kubernetes 承担两个角色。</p>\n<ul>\n<li>支撑应用运行的集群。</li>\n<li>编排器。</li>\n</ul>\n<h2>集群角色的 Kubernetes</h2>\n",
+            "url": "https://guowei-gong.github.io/posts/k8s/核心概念",
+            "title": "Kubernetes核心概念",
+            "date_modified": "2022-07-14T22:24:59.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>Kuberneter 是一个应用<strong>编排器</strong>，主要用于<strong>容器化</strong>的<strong>云原生微服务应用</strong>进行编排。</p>\n<p>上面这段定义让刚接触 Kubernetes 的程序员感觉晦涩难懂，那我们就通过拆分上面</p>\n",
+            "url": "https://guowei-gong.github.io/posts/k8s/简明介绍",
+            "title": "初识Kubernetes",
+            "date_modified": "2022-07-12T12:00:00.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>完成计划的过程中，不要<strong>倒数日思维</strong>。例如每天学习多久，需要坚持多少天。因为，它会剥夺自由感。当我们的自由感受到威胁时，我们会努力去恢复它。</p>\n<p>很多时候，我们因为这样的思想，导致任务某一天被破坏了</p>\n",
+            "url": "https://guowei-gong.github.io/posts/other/如何制定计划并高效完成它",
+            "title": "如何制定计划并高效完成它",
+            "date_modified": "2022-07-27T22:12:00.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>本文的目标是提供思路，从实用的观点来看，这将提供一个成本相对较低的解决方案。同时我也会长时间提供可运行的无水印视频下载[开源代码](<a href=\"https://github.com/haxifang-airco\">https://github.com/haxifang-airco</a></p>\n",
+            "url": "https://guowei-gong.github.io/posts/other/抖音无水印视频解析及代码实现",
+            "title": "抖音无水印视频解析及代码实现",
+            "date_modified": "2021-02-13T22:05:01.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h2>前言</h2>\n<p>2020.3.1~2020.4.1，哈希坊面试成功已经过去两个月了，入职也已经过去一个月了，写点东西和大家进行一下分享，本文会写到以下的内容：</p>\n<p>个人一路走来的经历未来的一些思考这个月学到</p>\n",
+            "url": "https://guowei-gong.github.io/posts/other/来到哈希坊一个月，聊一聊我收获了什么",
+            "title": "来到哈希坊一个月，聊一聊我收获了什么",
+            "date_modified": "2020-04-01T18:29:19.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h2>👯 前言</h2>\n<p>为什么会产生这个需求呢？<br/><br>\n你期待更多人来使用你的项目 🥳 <br/><br>\n给你的项目加 Star🌟 或者 PR 🤔 <br/><br>\n好的项目除了自身契合开发者的需求外，还需要</p>\n",
+            "url": "https://guowei-gong.github.io/posts/other/用gitbook写一篇开源文档并不难",
+            "title": "用gitbook写一篇开源文档并不难",
+            "date_modified": "2021-01-04T18:05:01.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h2>🎨 背景</h2>\n<p>通过爬虫获取到的电视剧，在顶部往往存在<strong>跑马灯广告</strong>。相同播放域名存在一定的规律，可以对特定时间进行水印覆盖，但是通过人工去寻找这个规律，仅只能抽样，存在极大的不确定性。并且水</p>\n",
+            "url": "https://guowei-gong.github.io/posts/other/通过FFmpeg处理跑马灯广告",
+            "title": "通过FFmpeg处理跑马灯广告",
+            "date_modified": "2021-02-23T13:44:29.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>CSAPP 中的优化程序的性能章节中提到过，选择合适的算法和数据结构是优化程序的方向之一。Redis 官网中也明确提到，Redis 拥有突出的表现，不仅是因为它在内存中操作，还因为它的键值对都是按一定</p>\n",
+            "url": "https://guowei-gong.github.io/posts/redis/Redis数据类型选型手册",
+            "title": "Redis数据类型选型手册",
+            "date_modified": "2023-02-03T18:53:13.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>标题纠结了一会儿，是应该叫 2022 小结还是 2022 总结呢？因为这一年感觉一眨眼就过去了，记得我爸曾经对我说过，人过了 20 岁，日子就会过的很快了。又让他说中了。</p>\n<h1>2022 总结</h1>\n<h2></h2>\n",
+            "url": "https://guowei-gong.github.io/posts/yearly_summary/2022总结与2023年计划",
+            "title": "2022总结与2023年计划",
+            "date_modified": "2023-01-04T18:28:07.000Z",
+            "date_published": "2023-02-14T08:36:15.000Z",
+            "author": {
+                "name": "龚国玮",
+                "url": "https://valaxy.site"
+            }
+        }
+    ]
+}
