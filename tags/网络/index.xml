@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>网络 on 1024 CORES</title><link>https://gongguowei.com/tags/%E7%BD%91%E7%BB%9C/</link><description>Recent content in 网络 on 1024 CORES</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 11 Apr 2023 13:48:39 +0800</lastBuildDate><atom:link href="https://gongguowei.com/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml"/><item><title>TCP可靠性保证--超时重传</title><link>https://gongguowei.com/2023/04/11/tcp%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BF%9D%E8%AF%81--%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0.html/</link><pubDate>Tue, 11 Apr 2023 13:48:39 +0800</pubDate><guid>https://gongguowei.com/2023/04/11/tcp%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BF%9D%E8%AF%81--%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0.html/</guid><description>发送数据时，设置一个定时器，超过指定时间后，没有收到 ACK 确认应答报文，重发该数据。
+数据包丢失 确认应答丢失 RTT Round-Trip Time 往返时延 = 接受到确认时刻 - 数据发送时刻
+RTO Retransmission Time 超时重传时间，考虑该时间较长或较短的场景
+RTO 超时重传时间较大 重发比较慢，数据包丢失后，丢了半天才发，没有效率，性能差。
+RTO 超时重传时间较小 可能会导致没有丢包就重发，会增加网络阻塞，导致更多的超时，更多的超时又更多的重发。
+因此，精确的测量 RTO 的值，可以让重传机制更加高效，即 RTO 的值略大于 RTT 的值。
+$$ 往返时延 = 接受到确认时刻 - 数据发送时刻 $$
+往返时延的计算过程，看起来是那么美好，发包时记下 t0 ，发包端接收到 ACK 后，再记一个 t1 ，于是 RTT = t1 - t2。但是现实世界没有那么简单，这只是一个采样，不能代表普遍情况。
+网络是时常变化的，所以 RTT 也是时常变化的，那么 RTO 的值，应该是一个动态值。
+在 Linux 中计算 RTO 时间，通常需要：
+通过 TCP 采样 RTT 时间，然后进行加权平均，算出平滑 RTT 的值 采样 RTT 波动范围，避免如果有 RTT 有一个大的波动，没有被发现的情况 RFC6289 建议使用两个公式计算 RTO ，用文字描述两个公式的过程</description></item></channel></rss>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>离散型随机变量 on 1024 CORES</title><link>https://gongguowei.com/tags/%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/</link><description>Recent content in 离散型随机变量 on 1024 CORES</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 16 Feb 2023 16:30:59 +0800</lastBuildDate><atom:link href="https://gongguowei.com/tags/%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/index.xml" rel="self" type="application/rss+xml"/><item><title>加权随机设计与实现</title><link>https://gongguowei.com/2023/02/16/%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.html/</link><pubDate>Thu, 16 Feb 2023 16:30:59 +0800</pubDate><guid>https://gongguowei.com/2023/02/16/%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.html/</guid><description>介绍 首先，什么是加权随机？当我们从某种容器中随机选择一个元素，每个元素被选中的机会并不相等，而是由相对“权重”（或概率）被选中的，也就是说我们想要有“偏心”的得到某种随机结果。举一个例子，假如现在有一个权重数组 w = {1, 2, 4, 8}，它们代表如下规则。
+$ \frac{1}{(1+2+4+8)} = \frac{1}{15} \approx 6.6$ % 的机会选中索引 0
+$ \frac{2}{(1+2+4+8)} = \frac{2}{15} \approx 13.3$ % 的机会选中索引 1
+$ \frac{3}{(1+2+4+8)} = \frac{4}{15} \approx 26.6$ % 的机会选中索引 2
+$ \frac{1}{(1+2+4+8)} = \frac{8}{15} \approx 53.3$ % 的机会选中索引 3
+在游戏开发的过程中，很多场景都会用到加权随机。例如游戏中的抽奖，我们有 50% 的几率获得金币、40% 的几率获得钻石、9% 的几率获得普通装备，1% 的几率获得极品装备。 再比如 nginx 的配置中，也有权重配置。
+解决方案 方案一 第一个方法是在我们的候选列表中，包含了基于权重的每个索引的预期数量，然后从该列表中随机选择。
+假设现在有权重列表 {1, 2, 4, 8}，那我们得到的候选列表将是 {0, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3}。</description></item></channel></rss>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日志 on 1024 CORES</title><link>https://gongguowei.com/categories/%E6%97%A5%E5%BF%97/</link><description>Recent content in 日志 on 1024 CORES</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 15 Feb 2023 17:29:51 +0800</lastBuildDate><atom:link href="https://gongguowei.com/categories/%E6%97%A5%E5%BF%97/index.xml" rel="self" type="application/rss+xml"/><item><title>一个日志系统包含什么</title><link>https://gongguowei.com/2023/02/15/%E4%B8%80%E4%B8%AA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88.html/</link><pubDate>Wed, 15 Feb 2023 17:29:51 +0800</pubDate><guid>https://gongguowei.com/2023/02/15/%E4%B8%80%E4%B8%AA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88.html/</guid><description>日志处理过程[1] 应用输出日志 避免打印敏感信息
+避免引用慢操作。日志中打印的信息从上下文中可以直接提取，而不是通过远程调用或者从数据库中获取，或者要通过大量的计算才能得到。
+避免打印追踪诊断信息。日志中不要打印方法输入参数、输出结果、方法执行时长之类的调试信息。日志的职责是记录事件，而追踪诊断应该由追踪系统去处理。追踪诊断信息是敏感信息、慢操作的主要源头。
+请求时，贯穿调用链的 TraceID，没有则生成一个。目的是日志定位（考虑对代码无入侵）。
+记录系统运行过程中的关键事件，例如定时任务、被降级的异常、与预期不符的结果等，但还要判断清楚事件的重要程度，选定相匹配的日志的级别
+记录启动时输出配置信息，对于系统启动时或者检测到配置中心发生变化的配置，脱敏后将配置信息输出到日志，因为初始化一般只会执行一次，出现问题时不易于复现，所以记录到日志中
+收集 Beats 系列，拥有全品类采集器，搞定所有的数据类型。
+Logstash 同样可以收集数据，与 Beats 系列的区别在于，前者像一个大型采集器，后者是一系列单一用途的数据采集器。
+缓冲 不同节点的日志，可能量级非常大，不仅要保证日志数据不会丢失，还要尽力保证日志数据的连续性。
+常用的缓解压力的做法，将日志接收者从 Elasticsearch 转移到抗压能力更强的队列缓存。Redis 或者 Kafka 都是作为缓冲层的常见技术。
+聚合与加工 通常使用 Logstash 完成。日志是非结构化数据，如果不处理，Elasticsearch 只能以全文检索的方式去使用日志，这样不利于条件过滤、统计对比操作。 Logstash 进行格式化的同时，还可以调用插件完成时间处理（统一时间格式）等额外的操作。
+Elasticsearch 可以完成聚合统计，Logstash 也可以。前者偏向实时的（在线），后者偏向常用的、固定的（离线）聚合指标。
+索引与存储 经过了“漫长”的等待，终于放入 Elasticsearch 中索引存储了。
+日志虽然增长速度很快，但已经写入的数据几乎没有再发生变动的可能，由于这样的特征，Elasticsearch 都会使用时间范围作为索引。
+日志基本上只会以最近的数据为检索目标，随着时间推移，早期的数据会逐渐失去价值。这点就决定了我们可以很容易地区出分冷数据和热数据，进而对不同数据采用不一样的硬件策略。
+分析与查询 日志数据可以使用 Kibana 进行可视化。
+Kibana 官方宣传语：“一张图片胜过千万行日志”。</description></item></channel></rss>

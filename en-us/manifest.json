@@ -1,0 +1,36 @@
+{
+    "theme_color": "#2791e8",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/en-us/",
+    "name": "1024 CORES",
+    "short_name": "Ice-Hazymoon",
+    "description": "1024 CORES",
+    "icons": [
+        {
+            "src": "/icon_hu388abc1f88ea92f3167c9e71e4335300_14368_192x192_resize_catmullrom_3.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon_hu388abc1f88ea92f3167c9e71e4335300_14368_256x256_resize_catmullrom_3.png",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon_hu388abc1f88ea92f3167c9e71e4335300_14368_384x384_resize_catmullrom_3.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon_hu388abc1f88ea92f3167c9e71e4335300_14368_512x512_resize_catmullrom_3.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
