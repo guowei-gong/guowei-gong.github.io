@@ -1,4 +1,5 @@
 import { defineValaxyConfig } from 'valaxy'
+import { addonWaline } from 'valaxy-addon-waline'
 import type { UserThemeConfig } from 'valaxy-theme-yun'
 
 // add icons what you will need
@@ -48,4 +49,12 @@ export default defineValaxyConfig<UserThemeConfig>({
   },
 
   unocss: { safelist },
+
+  addons: [
+    addonWaline({
+      serverURL: 'https://waline.weizicoding.cn',
+      pageview: true,
+      comment: true,
+    }),
+  ]
 })
