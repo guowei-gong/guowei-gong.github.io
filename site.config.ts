@@ -81,7 +81,14 @@ export default defineSiteConfig({
   ],
 
   search: {
-    enable: false,
+    enable: true,
+    type: 'fuse',
+  },
+
+  fuse: {
+    options: {
+      keys: ['title', 'tags', 'categories', 'excerpt', 'content'],
+    },
   },
 
   sponsor: {
@@ -108,6 +115,7 @@ export default defineSiteConfig({
       },
     ],
   },
+
   /**
    * 开启阅读统计
    */
