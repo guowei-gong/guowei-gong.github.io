@@ -48,6 +48,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/game-server-compared-game-client': RouteRecordInfo<'/posts/game-server-compared-game-client', '/posts/game-server-compared-game-client', Record<never, never>, Record<never, never>>,
     '/posts/get-start-with-network-architecture': RouteRecordInfo<'/posts/get-start-with-network-architecture', '/posts/get-start-with-network-architecture', Record<never, never>, Record<never, never>>,
     '/posts/http-content-negotiation': RouteRecordInfo<'/posts/http-content-negotiation', '/posts/http-content-negotiation', Record<never, never>, Record<never, never>>,
+    '/posts/load-average': RouteRecordInfo<'/posts/load-average', '/posts/load-average', Record<never, never>, Record<never, never>>,
     '/posts/missing-out-on-a-whole-life': RouteRecordInfo<'/posts/missing-out-on-a-whole-life', '/posts/missing-out-on-a-whole-life', Record<never, never>, Record<never, never>>,
     '/posts/multiplayer-frame-sync': RouteRecordInfo<'/posts/multiplayer-frame-sync', '/posts/multiplayer-frame-sync', Record<never, never>, Record<never, never>>,
     '/posts/pay-for-a-traffic-accident': RouteRecordInfo<'/posts/pay-for-a-traffic-accident', '/posts/pay-for-a-traffic-accident', Record<never, never>, Record<never, never>>,
