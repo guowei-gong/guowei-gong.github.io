@@ -491,12 +491,12 @@
       this.init();
     }
     renderComment(item, children = "", reply = true) {
-      const replyHtml = reply ? `<div class="reply"><span class="comment-reply-link u-cursorPointer" onclick="return addComment.moveForm('comment-${item.comment_ID}', '${item.comment_ID}', 'respond', '${document.querySelector(this.postSelector).dataset.id}')">\u56DE\u590D</span></div>                            ` : "";
-      return `<li class="pComment--item parent" itemtype="http://schema.org/Comment" data-id="${item.comment_ID}" itemscope="" itemprop="comment" id="comment-${item.comment_ID}">
+      const replyHtml = reply ? `<div class="reply"><span class="comment-reply-link u-cursorPointer" onclick="return addComment.moveForm('comment-${item.comment_id}', '${item.comment_id}', 'respond', '${document.querySelector(this.postSelector).dataset.id}')">\u56DE\u590D</span></div>                            ` : "";
+      return `<li class="pComment--item parent" itemtype="http://schema.org/Comment" data-id="${item.comment_id}" itemscope="" itemprop="comment" id="comment-${item.comment_id}">
                             <div class="pComment--body">
                                 <div class="pComment--meta">
-                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author}" />
-                                    <span class="pComment--author">${item.comment_author}</span>
+                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author_name}" />
+                                    <span class="pComment--author">${item.comment_author_name}</span>
                                     </div>
                                 <div class="pComment--content" itemprop="description">
                                     ${item.comment_content}
@@ -948,12 +948,12 @@
       this.init();
     }
     renderComment(item, children = "", reply = true) {
-      const replyHtml = reply ? `<div class="reply"><span class="comment-reply-link u-cursorPointer" onclick="return addComment.moveForm('comment-${item.comment_ID}', '${item.comment_ID}', 'respond', '${document.querySelector(this.postSelector).dataset.id}')">\u56DE\u590D</span></div>                            ` : "";
-      return `<li class="pComment--item parent" itemtype="http://schema.org/Comment" data-id="${item.comment_ID}" itemscope="" itemprop="comment" id="comment-${item.comment_ID}">
+      const replyHtml = reply ? `<div class="reply"><span class="comment-reply-link u-cursorPointer" onclick="return addComment.moveForm('comment-${item.comment_id}', '${item.comment_id}', 'respond', '${document.querySelector(this.postSelector).dataset.id}')">\u56DE\u590D</span></div>                            ` : "";
+      return `<li class="pComment--item parent" itemtype="http://schema.org/Comment" data-id="${item.comment_id}" itemscope="" itemprop="comment" id="comment-${item.comment_id}">
                             <div class="pComment--body">
                                 <div class="pComment--meta">
-                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author}" />
-                                    <span class="pComment--author">${item.comment_author}</span>
+                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author_name}" />
+                                    <span class="pComment--author">${item.comment_author_name}</span>
                                     </div>
                                 <div class="pComment--content" itemprop="description">
                                     ${item.comment_content}

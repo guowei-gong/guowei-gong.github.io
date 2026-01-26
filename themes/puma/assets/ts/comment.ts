@@ -5,8 +5,8 @@ interface farallonCommentOptions {
 }
 
 type Comment = {
-    comment_ID: string;
-    comment_author: string;
+    comment_id: string;
+    comment_author_name: string;
     comment_author_url: string;
     comment_date: string;
     comment_content: string;
@@ -39,17 +39,17 @@ export class farallonComment extends farallonHelper {
     renderComment(item: Comment, children: any = "", reply: boolean = true) {
         const replyHtml: string = reply
             ? `<div class="reply"><span class="comment-reply-link u-cursorPointer" onclick="return addComment.moveForm('comment-${
-                  item.comment_ID
-              }', '${item.comment_ID}', 'respond', '${
+                  item.comment_id
+              }', '${item.comment_id}', 'respond', '${
                   (document.querySelector(this.postSelector) as HTMLElement)!
                       .dataset.id
               }')">回复</span></div>                            `
             : "";
-        return `<li class="pComment--item parent" itemtype="http://schema.org/Comment" data-id="${item.comment_ID}" itemscope="" itemprop="comment" id="comment-${item.comment_ID}">
+        return `<li class="pComment--item parent" itemtype="http://schema.org/Comment" data-id="${item.comment_id}" itemscope="" itemprop="comment" id="comment-${item.comment_id}">
                             <div class="pComment--body">
                                 <div class="pComment--meta">
-                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author}" />
-                                    <span class="pComment--author">${item.comment_author}</span>
+                                        <img src="${item.avatar}" class="avatar" width=42 height=42 alt="${item.comment_author_name}" />
+                                    <span class="pComment--author">${item.comment_author_name}</span>
                                     </div>
                                 <div class="pComment--content" itemprop="description">
                                     ${item.comment_content}
