@@ -1,0 +1,33 @@
+<header class="pHeader">
+	<div class="header-inner" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+		<h1 class="site-title" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+			<a href='{{ site.Home.Permalink }}' class="metabar--logo" title="{{ $.Site.Title }}">
+				{{ $.Site.Title }}
+			</a>
+		</h1>
+		<p class="site-description">{{ .Site.Params.SiteDescription }}</p>
+		{{ if .Site.Params.search }}
+		<form method="get" class="search-form" action="{{ site.Home.Permalink }}search">
+			<input type="search" class="search-field" placeholder='{{ i18n "search.placeholder" }}' value="" name="s">
+		</form>
+		{{ end }}
+		{{ if .Site.Params.footer_sns }}
+		<div class=pHeader--icons>
+			{{ partial "sns.html" . }}
+		</div>
+		{{ end }}
+	</div>
+</header>
+{{ if len $.Site.Menus }}
+<nav class="pNav">
+	<ul class="pNav--list">
+		{{ range $.Site.Menus.main }}
+		{{ if not .HasChildren }}
+		<li class="pNav--item">
+			<a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
+		</li>
+		{{ end }}
+		{{ end }}
+	</ul>
+</nav>
+{{ end }}

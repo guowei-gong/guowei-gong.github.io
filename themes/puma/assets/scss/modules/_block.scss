@@ -1,0 +1,120 @@
+.pBlock {
+    &--item {
+        border-bottom: 2px solid var(--puma-border-color-light);
+        padding: 40px 0;
+        position: relative;
+
+        @media screen {
+            @media (max-width: 768px) {
+                padding: 20px 0;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    &--header {
+        text-align: center;
+    }
+
+    &--title {
+        font-size: 24px;
+        line-height: 1.4;
+
+        @media screen {
+            @media (max-width: 768px) {
+                font-size: 22px;
+            }
+        }
+
+        a {
+            transition: 0.5s;
+            &:hover {
+                color: var(--puma-main-color);
+            }
+        }
+    }
+
+    &--snippet {
+        color: var(--puma-text-light);
+
+        @media screen {
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &--summary {
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        max-height: 12em;
+
+        code {
+            background-color: var(--puma-code-bg, rgba(0, 0, 0, 0.05));
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--puma-code-bg, #f5f5f5);
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 10px 0;
+
+            code {
+                background: none;
+                padding: 0;
+            }
+        }
+    }
+
+    &--postMetaWrap {
+        color: var(--puma-text-light);
+        font-size: 14px;
+        margin-bottom: 20px;
+
+        @media screen {
+            @media (max-width: 768px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &--footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 2px solid var(--puma-border-color-light);
+        color: var(--puma-text-light);
+        font-size: 12px;
+        padding-left: 10px;
+
+        a {
+            &:hover {
+                color: var(--puma-main-color);
+            }
+        }
+    }
+
+    &--empty {
+        padding: 50px 0;
+        color: var(--puma-text-light);
+        text-align: center;
+    }
+}
+
+.more-link {
+    font-size: 12px;
+    color: var(--puma-text-light);
+
+    &:hover {
+        color: var(--puma-hover-color);
+    }
+}

@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+<style>
+    .pArchive--title:hover {
+        color: #27ae60 !important;
+    }
+</style>
+
+<div class="main-content">
+    <section class="pArticle" data-id="{{ .Params.ID | default .File.UniqueID }}">
+        <header class="pArticle--header">
+            <h2 class="pArticle--title" itemprop="headline">
+                {{ .Title }}
+            </h2>
+        </header>
+        <div class="pArchive">
+            {{- $months := slice "一月" "二月" "三月" "四月" "五月" "六月" "七月" "八月" "九月" "十月" "十一月" "十二月" }}
+            {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+            {{ range $pages.ByPublishDate.Reverse.GroupByDate "2006" }}
+            <div data-year="{{ .Key }}" class="pArchive--yearly">
+                {{ range .Pages.ByPublishDate.Reverse.GroupByDate "January" }}
+                <h3 class="pArchive--monthly">{{ index $months (sub (index .Pages 0).Date.Month 1) }}</h3>
+                <div class="pArchive--list">
+                    {{ range .Pages }}
+                    <div class="pArchive--item">
+                        <span class="pArchive--meta" style="color: #27ae60; margin-right: 0.75em;">{{ .Date.Format "01-02" }}</span>
+                        <a href="{{ .RelPermalink }}" title="{{ .Title }}" aria-label="{{ .Title }}"
+                            class="pArchive--title">
+                            {{ .Title }}
+                        </a>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </section>
+</div>
+{{ end }}

@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<div class="main-content">
+    <section class="pArticle" data-id="{{ .Params.ID | default .File.UniqueID }}">
+        <header class="pArticle--header">
+            <h2 class="pArticle--title" itemprop="headline">
+                {{ .Title }}
+            </h2>
+        </header>
+        {{ if .IsTranslated }}
+        <div class="translatedCard">
+            <h4>{{ i18n "translations" }}</h4>
+            <ul>
+                {{ range .Translations }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}{{ if .IsPage }}{{ end
+                        }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+        {{- $TOCEnabled := or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
+        {{- $hasTOC := gt (len .TableOfContents) 32 -}}
+        {{ if and $TOCEnabled $hasTOC -}}
+        <details class="pArticle--toc" open>
+            <summary class="toc-title">{{ i18n "article.tableOfContents" }}</summary>
+            {{ .TableOfContents }}
+        </details>
+        {{- end }}
+        <div class="pArticle--content pGraph">
+            {{ .Content }}
+        </div>
+    </section>
+</div>
+
+{{ end }}

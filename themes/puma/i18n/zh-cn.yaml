@@ -1,0 +1,46 @@
+toggleMenu:
+    other: 切换菜单
+
+darkMode:
+    other: 暗色模式
+
+copyRight:
+    other: 版权所有
+
+translations:
+    other: 其他语言
+
+postsOlder:
+    other: 更早文章
+
+postsNewer:
+    other: 更新文章
+
+search:
+    placeholder:
+        other: 输入内容回车搜索
+
+    submit:
+        other: 搜索
+
+article:
+    back:
+        other: 返回
+
+    tableOfContents:
+        other: 目录
+
+    relatedContent:
+        other: 相关文章
+
+    lastUpdatedOn:
+        other: 最后更新于
+
+    readingTime:
+        other: "{{ .Count }} 分钟阅读"
+
+    views:
+        other: " 次浏览"
+
+    nocomment:
+        other: "还没有评论"

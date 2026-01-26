@@ -1,0 +1,136 @@
+{{ define "main" }}
+<div class="main-content">
+    <header class="pTerm--header">
+        <div id="stats"></div>
+    </header>
+    <div id="hits" class="pBlock--list"></div>
+    <div id="pagination"></div>
+</div>
+{{/* 本地引用 algolia 与 instantsearch 脚本（需放在 assets/js/ 下） */}}
+{{ $algolia := resources.Get "js/algoliasearch-lite.umd.js" }}
+{{ $instant := resources.Get "js/instantsearch.production.min.js" }}
+<script src="{{ $algolia.RelPermalink }}"></script>
+<script src="{{ $instant.RelPermalink }}"></script>
+<script>
+    // 相对时间格式化函数
+    function timeAgo(dateString) {
+        const now = new Date();
+        const date = new Date(dateString);
+        const seconds = Math.floor((now - date) / 1000);
+        
+        const intervals = [
+            { label: '年', seconds: 31536000 },
+            { label: '个月', seconds: 2592000 },
+            { label: '周', seconds: 604800 },
+            { label: '天', seconds: 86400 },
+            { label: '小时', seconds: 3600 },
+            { label: '分钟', seconds: 60 }
+        ];
+        
+        for (const interval of intervals) {
+            const count = Math.floor(seconds / interval.seconds);
+            if (count >= 1) {
+                return `${count} ${interval.label}前`;
+            }
+        }
+        return '刚刚';
+    }
+
+    const searchClient = algoliasearch('{{ .Site.Params.searchAPPID }}', '{{ .Site.Params.searchKey }}');
+
+    const search = instantsearch({
+        indexName: '{{ .Site.Params.indexName }}',
+        searchClient,
+        insights: false
+    });
+
+    // 自定义统计信息
+    const renderStats = (renderOptions, isFirstRender) => {
+        const { nbHits, query, widgetParams } = renderOptions;
+        if (!query) {
+            widgetParams.container.innerHTML = '';
+            return;
+        }
+        if (nbHits > 0) {
+            widgetParams.container.innerHTML = `<h1 class="pTerm--title">找到 ${nbHits} 条「${query}」相关的结果</h1>`;
+        } else {
+            widgetParams.container.innerHTML = `<h1 class="pTerm--title">没有符合「${query}」的结果</h1>`;
+        }
+    };
+    const customStats = instantsearch.connectors.connectStats(renderStats);
+
+    // 自定义 hits（无 ais-Hits* 容器）
+    const renderHits = ({ hits, widgetParams }) => {
+        const lngString = '{{ .Site.Language }}';
+        widgetParams.container.innerHTML = hits.map(hit => {
+            const date = timeAgo(hit.date);
+            const uri = hit.uri.replace("/" + lngString + "/", "/");
+            const cover = hit.cover
+                ? `<p><img src="${hit.cover}"  itemprop="image" /></p>`
+                : '';
+            return `<article class="pBlock--item" itemtype="http://schema.org/Article" itemscope="itemscope">
+                <div class="pBlock--header">
+                            <h2 class="pBlock--title" itemprop="headline">
+                                <a href="${hit.url}">${instantsearch.highlight({ attribute: 'title', hit })}</a>
+                            </h2>
+                            <div class="pBlock--postMetaWrap">${date}</div>
+                        </div>
+                        <div class="pBlock--snippet grap">
+                                    ${hit.description || ''}
+                            </div>
+                        </div>
+                    </article>`;
+        }).join('');
+    };
+    const customHits = instantsearch.connectors.connectHits(renderHits);
+
+    // 可选自定义分页
+    const renderPagination = ({ refine, currentRefinement, nbPages, widgetParams }) => {
+        if (nbPages <= 1) { widgetParams.container.innerHTML = ''; return; }
+        const maxVisible = 5;
+        const first = 0;
+        const last = nbPages - 1;
+        let pages = [];
+        if (nbPages <= maxVisible) {
+            pages = Array.from({ length: nbPages }, (_, i) => i);
+        } else {
+            pages.push(first);
+            const remaining = maxVisible - 2;
+            let start = currentRefinement - Math.floor(remaining / 2);
+            let end = currentRefinement + Math.ceil(remaining / 2);
+            if (start <= first + 1) { start = 1; end = start + remaining; }
+            if (end >= last) { end = last - 1; start = end - remaining; }
+            for (let i = start; i <= end; i++) pages.push(i);
+            pages.push(last);
+        }
+        const parts = [];
+        let prev = null;
+        pages.forEach(p => {
+            if (prev !== null && p - prev > 1) parts.push('<span class="dots">…</span>');
+            parts.push(`<span class="page-numbers ${p === currentRefinement ? 'current' : ''}" data-page="${p}">${p + 1}</span>`);
+            prev = p;
+        });
+        widgetParams.container.innerHTML = `<nav class="nav-links nav-links__centered">${parts.join('')}</nav>`;
+        widgetParams.container.querySelectorAll('span[data-page]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                refine(Number(e.currentTarget.dataset.page));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    };
+    const customPagination = instantsearch.connectors.connectPagination(renderPagination);
+
+    search.addWidgets([
+        customStats({ container: document.querySelector('#stats') }),
+        instantsearch.widgets.configure({ hitsPerPage: 12 }),
+        customHits({ container: document.querySelector('#hits') }),
+        customPagination({ container: document.querySelector('#pagination') })
+    ]);
+
+    search.start();
+
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("s");
+    if (q) search.helper.setQuery(q).search();
+</script>
+{{ end }}

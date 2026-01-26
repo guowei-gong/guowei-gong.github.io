@@ -1,0 +1,78 @@
+.posts-nav,
+.comment-navigation,
+.page-links,
+.nav-links {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+
+    .page-numbers,
+    .post-page-numbers {
+        background-color: var(--puma-background-gray-light);
+        border: 1px solid var(--puma-border-color-light);
+        border-radius: 3px;
+        color: var(--puma-text-gray);
+        font-size: 12px;
+        margin: 0 5px;
+        padding: 3px 10px;
+
+        &.current,
+        &:hover {
+            background-color: var(--puma-main-color);
+            color: var(--puma-background-white);
+        }
+
+        &.current {
+            cursor: not-allowed;
+        }
+    }
+
+    .post-page-numbers {
+        padding: 1px 8px;
+    }
+}
+
+.post-navigation {
+    border-top: 1px solid var(--puma-border-color-light);
+    overflow: hidden;
+    padding: 3px 0;
+
+    .meta-nav {
+        color: var(--puma-text-light);
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-next,
+    .nav-previous {
+        background-position: 50%;
+        background-size: cover;
+        box-sizing: border-box;
+        padding: 20px;
+        position: relative;
+        width: 50%;
+
+        &:only-child {
+            text-align: center;
+            width: 100%;
+        }
+
+        a {
+            display: block;
+            position: relative;
+            &:hover {
+                color: var(--puma-hover-color);
+            }
+        }
+    }
+
+    .nav-next {
+        text-align: right;
+    }
+}

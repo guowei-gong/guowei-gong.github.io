@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>职业规划 on 洋芋粑</title>
+    <link>http://localhost:1313/tags/%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/</link>
+    <description>Recent content in 职业规划 on 洋芋粑</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 13 Jan 2026 18:34:09 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>业务在哪，核心就在哪</title>
+      <link>http://localhost:1313/posts/where-business-leads-core-follows/</link>
+      <pubDate>Tue, 13 Jan 2026 18:34:09 +0800</pubDate>
+      <guid>http://localhost:1313/posts/where-business-leads-core-follows/</guid>
+      <description>&lt;p&gt;不久前，我在 GitHub 上看到某位开发者的自我介绍：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;我的研究重点是高性能并发数据结构和算法、编程语言运行时（Go 和 Rust）、标准库。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;这段话像一颗钉子，钉进我的脑海，之后便时常浮现。我羡慕他的目标如此明确。从职业发展的角度看，我认为他在第三阶段。&lt;/p&gt;&#xA;&lt;h2 id=&#34;三个阶段&#34;&gt;三个阶段&lt;/h2&gt;&#xA;&lt;p&gt;第一阶段：我能做什么？&#xA;刚毕业，保持好奇心，追求广度。&lt;/p&gt;&#xA;&lt;p&gt;第二阶段：我在什么业务领域最有价值？&#xA;工作三到五年，开始深耕某个业务领域。比如游戏——我很庆幸，当年选择工作时，曾刻意考虑行业。&lt;/p&gt;&#xA;&lt;p&gt;第三阶段：我长期复利的工作技能是什么？&#xA;这是更远的思考，关于哪些能力可以随时间不断增值。&lt;/p&gt;&#xA;&lt;p&gt;自此，我不止一次问自己：在选定游戏行业的前提下，我的下一步是什么？&#xA;表面是规划，内里却藏着焦虑：我要掌握什么，才不惧未来失业？游戏服务器有哪些技术值得深挖？&lt;/p&gt;&#xA;&lt;p&gt;直到最近，我试着换了一个视角。&lt;/p&gt;&#xA;&lt;h2 id=&#34;游戏服务器程序员有何不同&#34;&gt;游戏服务器程序员，有何不同？&lt;/h2&gt;&#xA;&lt;p&gt;“游戏”、“Web”和 “APP” 的服务器程序员，本质上并无区别。游戏只是软件的一个类别。早年腾讯、网易的游戏团队里，很多程序员也来自其他业务部门。&lt;/p&gt;&#xA;&lt;p&gt;游戏后端工程师这个岗位，主要源于三类需求：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;游戏性需求。比如存档，它可以提升用户体验。&lt;/li&gt;&#xA;&lt;li&gt;多人联机需求。玩家间的互动，能催生更多玩法与趣味。&lt;/li&gt;&#xA;&lt;li&gt;公平性需求。也就是反作弊。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;因此，从技术上刻意区分“游戏”与“非游戏”，并不合适。我在画地为牢，为自己贴上固化的标签。&#xA;当然，技术虽无本质区别，却有倾向性。例如游戏业务的特点，决定了大多数服务难以设计成无状态。&lt;/p&gt;&#xA;&lt;p&gt;我逐渐把问题从“怎样保住岗位”，转向“如何积累长期存在的能力”。一个客观事实是：行业动荡带来的失业，无法完全避免。但如果暂时放下这个忧虑，那么游戏行业何时会释放更多服务器岗位？答案要从行业发展的脉络中找。&lt;/p&gt;&#xA;&lt;p&gt;游戏服务器岗位的收缩，大约始于 2020 年前后的“品质升级潮”。当时，无论投资人还是从业者，都眼馋国外 3A 。大厂纷纷入局，立项多是高难度的“类 3A”项目。&lt;/p&gt;&#xA;&lt;p&gt;高难度如何体现？最直接的办法就是“对标 3A”——先把画面做上去，吸引眼球，再融资。很多项目根本不需要服务器深入参与，因为研发进度根本没到需要服务器深度参与的那一步。&lt;/p&gt;&#xA;&lt;p&gt;但后来大家发现市场回报并未达到预期，原因很简单，重心偏了，“好看”的游戏，未必等于“好玩”。连客户端岗位也开始缩减。&lt;/p&gt;&#xA;&lt;p&gt;反而近年，SLG 领域的元趣、途游和点点互动等公司，凭借高速增长悄然上位，甚至出现“点点互动单品营收杀穿网易手游总和”这类话题。&lt;/p&gt;&#xA;&lt;h2 id=&#34;风向正在悄然转变&#34;&gt;风向正在悄然转变&lt;/h2&gt;&#xA;&lt;p&gt;一个趋势正在浮现：高品质休闲游戏。&#xA;其实国外移动市场一直以此类为主，只是国内厂商曾一度执着于在手机上复刻 3A。&lt;/p&gt;&#xA;&lt;p&gt;这个版本，客户端的权重相对降低，大量业务逻辑又回归服务器。游戏市场规模再次扩大，招聘市场也在悄然回暖。&lt;/p&gt;&#xA;&lt;p&gt;这一次，舞台准备好了，我们准备好上场了吗？&lt;/p&gt;&#xA;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/where-business-leads-core-follows.jpg&#34; width=&#34;300&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;&#xA;&lt;p&gt;回到最初的问题：游戏服务器程序员，我的第三阶段应该是什么？&lt;/p&gt;&#xA;&lt;p&gt;写到这儿，我不再焦虑于追逐“特点”，我的答案不再是某个具体的技术名词，而是专注于扎实基础与逻辑思维。&lt;/p&gt;&#xA;&lt;p&gt;舞台或许随风向变换，但站稳脚下的基石，便能随风起舞。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

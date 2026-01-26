@@ -1,0 +1,47 @@
+toggleMenu:
+    other: Toggle Menu
+
+darkMode:
+    other: Dark Mode
+
+copyRight:
+    other: Copyright
+
+translations:
+    other: Translations
+
+postsOlder:
+    other: Older Posts
+
+postsNewer:
+    other: Newer Posts
+
+search:
+    placeholder:
+        other: Type and enter to search
+
+    submit:
+        other: Search
+
+article:
+    back:
+        other: back
+
+    tableOfContents:
+        other: TOC
+
+    relatedContent:
+        other: Related Content
+
+    lastUpdatedOn:
+        other: Last update on
+
+    readingTime:
+        one: "{{ .Count }} min read"
+        other: "{{ .Count }} mins read"
+
+    views:
+        other: " views"
+
+    nocomment:
+        other: "no comment yet"

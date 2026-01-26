@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+<div class="main-content">
+    <section class="pArticle" data-id="{{ with .Params.ID }}{{ . }}{{ else }}{{ with .File }}{{ .UniqueID }}{{ end }}{{ end }}">
+        <header class="pArticle--header">
+            <h2 class="pArticle--title" itemprop="headline">
+                {{ .Title }}
+            </h2>
+            {{ if .Params.description }}
+            <div class="pTerm--description">{{ .Params.description }}</div>
+            {{ end }}
+        </header>
+        {{ if .Content }}
+        <div class="pArticle--content pGraph">
+            {{ .Content }}
+        </div>
+        {{ end }}
+    </section>
+    {{- $pages := .Data.Pages }}
+    {{- $paginator := .Paginate $pages }}
+    <div class="pBlock--list">
+        {{- range $index, $page := $paginator.Pages }}
+        {{ if eq .Type "memo" }}
+        {{ partial "memo.html" . }}
+        {{ else }}
+        {{ partial "post.html" . }}
+        {{ end }}
+        {{ end }}
+    </div>
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

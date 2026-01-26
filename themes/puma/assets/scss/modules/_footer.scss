@@ -1,0 +1,92 @@
+.site-footer {
+    border-top: 1px solid var(--puma-border-color-light);
+    color: var(--puma-text-gray);
+    font-size: 14px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: center;
+
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.fixed--theme {
+    position: fixed;
+    right: 0px;
+    bottom: 50%;
+    transform: translate3d(0, 50%, 0);
+    display: flex;
+    height: max-content;
+    background-color: var(--puma-background-white);
+    border-radius: 10px 0 0 10px;
+    width: max-content;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 0 1px var(--puma-border-color);
+
+    span {
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--puma-text-gray-lightest);
+        margin-bottom: 5px;
+
+        &:hover {
+            color: var(--puma-text-color);
+        }
+
+        &.is-active {
+            color: var(--puma-text-color);
+            background-color: var(--puma-background-gray);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.backToTop {
+    position: fixed;
+    right: 0px;
+    bottom: 50px;
+    cursor: pointer;
+    transform: translate3d(200px, 0, 0);
+    transition: 0.5s;
+    background-color: var(--puma-background-white);
+    box-shadow: 0 0 0 1px var(--puma-border-color);
+    border-radius: 10px 0 0 10px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+        fill: var(--puma-text-gray-lightest);
+        width: 14px;
+        height: 14px;
+        padding: 7px;
+        border-radius: 8px;
+    }
+
+    &.is-active {
+        transform: translate3d(0, 0, 0);
+    }
+
+    &:hover {
+        .icon {
+            background-color: var(--puma-background-gray);
+            fill: var(--puma-text-color);
+        }
+    }
+}

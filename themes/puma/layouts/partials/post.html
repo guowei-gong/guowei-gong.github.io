@@ -1,0 +1,48 @@
+<article class="pBlock--item" data-id="{{ .File.UniqueID}}">
+    <header class="pBlock--header">
+        <h2 class="pBlock--title" itemprop="headline">
+            <a href="{{ .Permalink }}" title="{{ .Title }}">
+                {{ .Title }}
+            </a>
+        </h2>
+        <div class="pBlock--postMetaWrap">
+            {{ partial "time.html" . }}
+        </div>
+    </header>
+    <div class="pBlock--snippet pGraph">
+        {{ if.Site.Params.coverImage }}
+        {{ if .Content }}
+        {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content }} {{ if $urls }} {{ $url :=index ($urls) 0 }} {{ $url
+            :=(strings.TrimPrefix "<img src=\"" $url) }}
+{{ $url := strings.TrimRight " \"" $url }} <p><img src="{{ $url }}" class="cover" alt="{{ .Title }}" /></p> {{ end }}
+        {{
+        end }}
+        {{ end }}
+        <div class="pBlock--summary">{{ .Summary }}</div>
+        <p><a href="{{ .Permalink }}" title="{{ .Title }}" class="more-link">Read more</a></p>
+    </div>
+    <div class="pBlock--footer">
+        <span class="pBlock--footer-left">
+            {{ with .GetTerms "categories" }}
+            <span class="article--categories">
+                {{- range $i, $cat := . -}}
+                    {{- if $i }}, {{ end -}}
+                    <a href="{{ $cat.Permalink }}">{{ $cat.Title }}</a>
+                {{- end -}}
+            </span>
+            <span class="sep"></span>
+            {{ end }}
+            <span class="article--views"></span>
+            <span class="sep"></span>
+            {{ T "article.readingTime" .ReadingTime }}
+        </span>
+        {{ with .GetTerms "tags" }}
+        <span class="article--tags">
+            {{- range $i, $tag := . -}}
+                {{- if $i }}<span class="sep"></span>{{ end -}}
+                <a href="{{ $tag.Permalink }}">{{ $tag.Title }}</a>
+            {{- end -}}
+        </span>
+        {{ end }}
+    </div>
+</article>

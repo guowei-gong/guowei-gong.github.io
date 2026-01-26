@@ -1,0 +1,236 @@
+.pComment {
+    &--area {
+        padding-top: 10px;
+    }
+
+    &--heroTitle {
+        border-bottom: 1px solid var(--puma-border-color-light);
+        font-size: 14px;
+        padding-bottom: 3px;
+    }
+
+    &--body {
+        border-bottom: 1px solid var(--puma-border-color-light);
+        padding: 25px 0;
+        position: relative;
+    }
+
+    &--meta {
+        display: flex;
+        align-items: center;
+
+        .avatar {
+            border-radius: 100%;
+            margin-right: 10px;
+            transition: all 0.5s ease 0s;
+        }
+    }
+
+    &--author {
+        font-size: 14px;
+        color: var(--puma-text-light);
+    }
+
+    &--content {
+        margin-top: 10px;
+        padding-left: 5px;
+        font-size: 14px;
+    }
+
+    &--footer {
+        font-size: 12px;
+        color: var(--puma-text-gray-lightest);
+        padding-top: 5px;
+    }
+}
+
+.required {
+    color: #c00;
+}
+
+.comment-notes {
+    font-size: 14px;
+    color: var(--puma-text-light);
+}
+
+.reply {
+    position: absolute;
+    right: 0;
+    top: 20px;
+
+    .comment-reply-link {
+        background-color: var(--puma-main-color);
+        border-radius: 10px;
+        color: var(--puma-background-white);
+        font-size: 12px;
+        padding: 3px 12px;
+
+        &:hover {
+            background-color: var(--puma-hover-color);
+        }
+    }
+}
+
+.comment-navigation {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.comment-reply-title {
+    color: var(--puma-text-light);
+    font-size: 18px;
+}
+
+.comment-form {
+    padding: 20px 0;
+
+    p {
+        margin-bottom: 15px;
+        &.logged-in-as {
+            font-size: 12px;
+            color: var(--puma-text-light);
+        }
+    }
+
+    label {
+        cursor: pointer;
+        display: block;
+        margin-bottom: 3px;
+        font-size: 14px;
+        color: var(--puma-text-gray);
+    }
+
+    textarea {
+        border: 1px solid var(--puma-border-color-light);
+        border-radius: 3px;
+        box-sizing: border-box;
+        padding: 10px;
+        resize: none;
+        width: 100%;
+        font-size: 14px;
+        height: 150px;
+        color: var(--puma-text-light);
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .form-submit {
+        display: flex;
+        align-items: center;
+    }
+
+    .submit {
+        background-color: var(--puma-main-color);
+        border: 1px solid var(--puma-main-color);
+        border-radius: 999rem;
+        color: var(--puma-background-white);
+        cursor: pointer;
+        font-size: 14px;
+        padding: 8px 25px;
+        font-size: 14px;
+
+        &:hover {
+            background-color: var(--puma-hover-color);
+            border-color: var(--puma-hover-color);
+        }
+    }
+
+    .comment-form-author input,
+    .comment-form-email input,
+    .comment-form-url input {
+        border: 1px solid var(--puma-border-color-light);
+        border-radius: 3px;
+        color: var(--puma-text-light);
+        font-size: 14px;
+        height: 30px;
+        padding: 0 10px;
+        width: 280px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.responsesWrapper {
+    margin-bottom: 30px;
+}
+
+.children {
+    margin-left: 0px;
+    padding-bottom: 10px;
+
+    .parent > & {
+        margin-left: 50px;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .pComment--body {
+        padding: 20px 0;
+    }
+
+    .pComment--content {
+        font-size: 14px;
+    }
+}
+
+.comment-respond {
+    padding-top: 20px;
+}
+
+.comment-reply-title {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+    small {
+        margin-left: auto;
+        color: #c00;
+    }
+}
+
+.commentnav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cnav-item {
+    font-size: 16px;
+    color: var(--puma-text-gray);
+    cursor: pointer;
+    line-height: 32px;
+    fill: var(--puma-text-gray);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--puma-hover-color);
+        fill: var(--puma-hover-color);
+    }
+
+    .svgIcon {
+        transform: translate3d(0, -1px, 0);
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.25;
+        pointer-events: none;
+    }
+}
+
+.chartPage-verticalDivider {
+    border-right: 1px solid var(--puma-border-color);
+    height: 25px;
+    margin: 0 10px;
+}
+
+.no--comment {
+    padding: 50px 0;
+    text-align: center;
+    color: var(--puma-text-gray);
+}

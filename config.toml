@@ -1,0 +1,73 @@
+baseURL = 'https://weizicoding.cn/'
+languageCode = 'zh-cn'
+title = '洋芋粑'
+theme = 'puma'
+
+[Params]
+  mainSections = ['memo', 'posts']
+  siteDescription = '能够称为烂尾的结局，过程一定很精彩。'
+  copyright = 'Blog since 2022'
+  showAuthor = true
+  footer_sns = true
+  github = 'https://github.com/guowei-gong'
+  feed = 'https://weizicoding.cn/feed'
+  authorName = '洋芋粑艺术家'
+  authorDescription = '© 版权信息：可以转载，请署名，并保留原文地址，尊重版权'
+  authorAvatar = 'https://secure.gravatar.com/avatar/2fd7e2e17a671f8e3fade0706e0a667e?s=128&d=mm&r=g'
+  post_like = true
+  post_view = true
+  actionDomain = 'https://farallon.gongguowei01.workers.dev/'
+  search = true
+  searchAPPID = "SDQEOS9LYI"
+  searchKey = "9ab6e6125c743465703e3bc720bd3702"
+  indexName = "index"
+
+[[menu.main]]
+  name = '首页'
+  url = '/'
+  weight = 1
+
+[[menu.main]]
+name = '归档'
+url = '/archives/'
+weight = 2
+
+[[menu.main]]
+  name = '分类'
+  url = '/categories/'
+  weight = 3
+
+[[menu.main]]
+  name = '项目'
+  url = '/repositories/'
+  weight = 4
+
+[[menu.main]]
+  name = '朋友'
+  url = '/friends/'
+  weight = 5
+
+[[menu.main]]
+  name = '关于'
+  url = '/categories/about/'
+  weight = 6
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[outputFormats]
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "index"
+    isPlainText = true
